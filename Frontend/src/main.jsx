@@ -8,3 +8,47 @@ createRoot(document.getElementById('root')).render(
     <App />
   </StrictMode>,
 )
+
+// main
+  // header 
+    // search bar
+    // read btn
+    // login / logout
+  // footer 
+    // info
+  // body 
+    // title
+    // text
+    // btn
+// login 
+  // form 
+// articles page
+  // grelha de artigos
+// article page
+  // title 
+  // body
+
+// services
+  // user
+  // loggin
+  // articles
+
+// models
+  // article
+  /*
+  {
+    "id": "int",
+    "title": "title",
+    "body": "body"
+  }
+  user:
+  {
+    "id": "int",
+    "username": "string",
+    "email": "string"
+  }
+  loggin:
+  {
+    "token": "string"
+  }
+  */
