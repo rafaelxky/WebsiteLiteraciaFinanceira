@@ -1,0 +1,11 @@
+.home {
+  padding: 16px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
