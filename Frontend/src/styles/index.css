@@ -1,3 +1,45 @@
+.header{
+    background-color: rgb(134, 178, 235);
+    display: flex;
+    flex-direction: row;
+    justify-content: center; 
+    align-items: center;
+    padding: none;
+    margin: none;
+    gap: 1%;
+    height: 70px;
+    font-size: 100%;
+    text-align: center;
+}
+
+.header-btn{
+    display: flex;
+    background-color: rgba(255, 255, 255, 0);
+    color: black;
+    border-style: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 10%;
+    padding: 1%;
+    font-size: 120%;
+    height: 80%;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+@keyframes header-btn-hover{
+  /*Body Bg color*/
+  100% {background-color: black;
+    /*High contrast color*/
+  color: white;
+  }
+}
+
+.header-btn:hover{
+  animation: header-btn-hover 0.1s linear forwards;
+}
 * {
   box-sizing: border-box;
 }

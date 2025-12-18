@@ -1,8 +1,12 @@
-import "../styles/Header.css"
+import { Children } from "react";
+import "../styles/index.css"
+import { HeaderBtn } from "./HeaderBtn";
 export function Header(props){
     return (
-        <div class = "header">
-            <h1>Hello World</h1>
+        <div className = "header">
+            <h1>Literacia Financeira</h1>
+            <HeaderBtn>Read</HeaderBtn>
+            <HeaderBtn>Login</HeaderBtn>
         </div>
     );
 }

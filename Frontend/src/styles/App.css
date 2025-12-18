@@ -2,6 +2,7 @@ html, home {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  background-color: rgb(0, 0, 0);
 }
 
 .app-layout{
