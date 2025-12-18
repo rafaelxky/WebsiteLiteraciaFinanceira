@@ -1,15 +1,20 @@
 import { useState } from "react";
 
 export function SearchBar({ onSearch }) {
+
   const [query, setQuery] = useState("");
+
     const handleChange = (e) => {
         setQuery(e.target.value);
     };
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        if(onSearch != null)
+        if(onSearch != null){
             onSearch(query);
+        } else {
+            console.log("Submited");
+        }
     };
 
     return (
@@ -18,7 +23,7 @@ export function SearchBar({ onSearch }) {
         type="text"
         value={query}
         onChange={handleChange}
-        placeholder="Look for articles"
+        placeholder="Procurar artigos"
       />
     </form>
   );

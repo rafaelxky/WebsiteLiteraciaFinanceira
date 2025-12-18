@@ -12,8 +12,8 @@ export function Header(props){
             <Link to="/" className="no-underline">
                 <h1>Literacia Financeira</h1>
             </Link>
-            <SearchBar></SearchBar>
-            <HeaderBtn link="/articles">Read</HeaderBtn>
+            <SearchBar onSearch={null}></SearchBar>
+            <HeaderBtn link="/artigos">Ler</HeaderBtn>
             {securityService.IsLoggedIn() ? 
             <HeaderBtn link="/logout">Logout</HeaderBtn>
             :
