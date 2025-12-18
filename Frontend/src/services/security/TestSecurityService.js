@@ -1,18 +1,21 @@
 export class TestSecurityService{
-    token = null
     constructor(baseUrl){
         this.baseUrl = baseUrl
     }
     Login(userLoginDto){
-        this.token = "token-" + userLoginDto.email
+        localStorage.setItem("token","token-"+userLoginDto.email);
     }
     Logout(){
-        token = null
+        localStorage.removeItem("token")
     }
     GetToken(){
-        return token
+        return localStorage.GetToken("token");
     }
     Encript(password){
         return "encripted:"+password
+    }
+    IsLoggedIn(){
+        let token = localStorage.getItem("token")
+        return token != null
     }
 } 

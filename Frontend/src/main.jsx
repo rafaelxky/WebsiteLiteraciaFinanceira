@@ -18,9 +18,9 @@ createRoot(document.getElementById('root')).render(
 
 // main
   // header 
-    // search bar
-    // read btn
-    // login / logout
+    // search bar X
+    // read btn X
+    // login / logout 
   // footer 
     // info
   // body 
