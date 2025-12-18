@@ -3,6 +3,10 @@ import { createRoot } from 'react-dom/client'
 import './styles/index.css'
 import App from './App.jsx'
 import { BrowserRouter } from 'react-router-dom'
+import { TestArticlesService } from './services/articles/TestArticlesService.js'
+import { TestUserService } from './services/users/TestUserService.js'
+import { TestSecurityService } from './services/security/TestSecurityService.js'
+
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
