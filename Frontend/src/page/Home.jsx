@@ -1,4 +1,5 @@
 import "../styles/Home.css";
+import { Link } from "react-router-dom";
 
 export default function Home() {
   const name = "Literacia Financeira";
@@ -38,6 +39,10 @@ export default function Home() {
       <section id="about" className="about-section">
         <h2>About</h2>
         <p>
+          <Link className="cta" to="/artigos">
+        Ir para Articles
+        </Link>
+
           This website is a portfolio of small tools and experiments focused on
           financial literacy. The goal is to make money concepts simple and practical.
         </p>
