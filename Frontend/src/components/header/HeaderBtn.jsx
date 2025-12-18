@@ -6,7 +6,7 @@ export function HeaderBtn({link, children, ...rest}) {
 
   return (
     <Link to={link} className="header-btn no-underline">
-      <button className="header-btn" {...rest}>
+      <button className="header-btn no-underline" {...rest}>
         {children}
       </button>
     </Link> 
