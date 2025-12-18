@@ -1,4 +1,4 @@
-import { ArticlePublicDto } from "../../models/Articles/ArticlePublicDto";
+import { ArticlePublicDto } from "../../models/articles/ArticlePublicDto";
 
 export class TestArticlesService{
     testArticle = new ArticlePublicDto("title", "content", "timestamp", 1,2);

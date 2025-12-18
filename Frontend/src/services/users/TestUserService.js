@@ -1,5 +1,4 @@
-import { UserCreateDto } from "../../models/Users/UserCreateDto";
-import { UserPublicDto } from "../../models/Users/UserPublicDto";
+import { UserPublicDto } from "../../models/users/UserPublicDto";
 
 export class TestUserService{
     testUser = new UserPublicDto("username", 1, "Reader");

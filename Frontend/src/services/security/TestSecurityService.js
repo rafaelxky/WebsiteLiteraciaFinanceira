@@ -3,13 +3,16 @@ export class TestSecurityService{
     constructor(baseUrl){
         this.baseUrl = baseUrl
     }
-    Login(token){
-        this.token = token
+    Login(userLoginDto){
+        this.token = "token-" + userLoginDto.email
     }
     Logout(){
         token = null
     }
     GetToken(){
         return token
+    }
+    Encript(password){
+        return "encripted:"+password
     }
 } 
