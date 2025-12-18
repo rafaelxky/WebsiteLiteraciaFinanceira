@@ -29,6 +29,11 @@
     align-items: center;
 }
 
+.no-underline{
+  text-decoration: none;
+  color: inherit;
+}
+
 @keyframes header-btn-hover{
   /*Body Bg color*/
   100% {background-color: black;
@@ -51,3 +56,4 @@ html, body {
   background-color: #fafafa;
   color: #222;
 }
+
