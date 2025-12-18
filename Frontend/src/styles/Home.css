@@ -1,0 +1,20 @@
+.home {
+  padding: 16px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.about-section h2,
+.project-section h2,
+.contact-section h2 {
+  margin-bottom: 20px;
+}
+
+.project-section {
+  padding: 50px;
+  text-align: center;
+}
+
+.project-list .project-item {
+  margin-bottom: 30px;
+}
