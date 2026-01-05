@@ -8,7 +8,7 @@
   padding: 24px 0 48px;
 }
 
-/* HERO */
+
 .aHero {
   padding: 24px;
   border-radius: 16px;
@@ -26,7 +26,7 @@
   max-width: 65ch;
 }
 
-/* SEARCH */
+
 .searchRow {
   margin-top: 16px;
   display: flex;
@@ -66,13 +66,13 @@
   font-size: 22px;
 }
 
-/* LIST */
+
 .aList {
   display: grid;
   gap: 14px;
 }
 
-/* ARTICLE CARD */
+
 .aCard {
   background: white;
   border-radius: 16px;
@@ -120,7 +120,7 @@
   color: #1f5eff;
 }
 
-/* SIDEBAR */
+
 .aSide__box {
   background: white;
   border-radius: 16px;
@@ -155,7 +155,7 @@
   cursor: pointer;
 }
 
-/* SEE ALL */
+
 .seeAll {
   display: inline-block;
   margin-top: 14px;
@@ -164,7 +164,7 @@
   color: #1f5eff;
 }
 
-/* RESPONSIVE */
+
 @media (max-width: 900px) {
   .aLayout {
     grid-template-columns: 1fr;
