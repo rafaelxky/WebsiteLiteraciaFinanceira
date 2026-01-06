@@ -7,6 +7,7 @@ import { Footer } from "./components/Footer";
 import Home from "./pages/Home";
 import Articles from "./pages/Articles";
 import ArticleDetail from "./pages/ArticleDetail";
+import ChatPage from "./pages/ChatPage"; // ✅ ADICIONA ISTO
 
 export default function App() {
   return (
@@ -17,6 +18,7 @@ export default function App() {
         <Route path="/" element={<Home />} />
         <Route path="/artigos" element={<Articles />} />
         <Route path="/artigos/:id" element={<ArticleDetail />} />
+        <Route path="/chat" element={<ChatPage />} /> {/* ✅ ADICIONA ISTO */}
       </Routes>
 
       <Footer />
