@@ -58,3 +58,36 @@ html, body {
   color: #222;
 }
 
+.search {
+  display: flex;
+  align-items: center;
+  width: 280px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: #fff;
+  box-shadow: 0 2px 16px -8px rgba(0,0,0,0.3);
+}
+
+.search input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 14px;
+  padding: 8px;
+  background: transparent;
+}
+
+.search button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 6px;
+  border-radius: 50%;
+}
+
+.search:focus-within {
+  box-shadow:
+    0 8px 20px -8px rgba(0,0,0,0.35),
+    inset 0 0 0 2px #4f46e5;
+}
