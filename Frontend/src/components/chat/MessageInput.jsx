@@ -13,7 +13,7 @@ export default function MessageInput({ onSend, disabled }) {
   }
 
   function handleKeyDown(e) {
-    // Enter envia; Shift+Enter faz nova linha
+    
     if (e.key === "Enter" && !e.shiftKey) {
       e.preventDefault();
       handleSubmit(e);

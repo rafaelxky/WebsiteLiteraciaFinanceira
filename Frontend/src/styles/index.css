@@ -38,9 +38,9 @@
 }
 
 @keyframes header-btn-hover{
-  /*Body Bg color*/
+ 
   100% {background-color: black;
-    /*High contrast color*/
+   
   color: white;
   }
 }
