@@ -5,7 +5,6 @@ import { articles } from "../data/articlesData";
 export default function ArticleDetail() {
   const { id } = useParams();
 
-  // ✅ evita crash se id não existir
   const article = articles.find((a) => a.id === id);
 
   if (!article) {
