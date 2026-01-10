@@ -7,5 +7,5 @@ import java.util.List;
 
 public interface ArticleRepository extends JpaRepository<Article, Long> {
 
-    List<Article> findAllByOrderByIdDesc(); // simples (podes ordenar por createdAt quando tiveres)
+    List<Article> findAllByOrderByIdDesc();
 }
