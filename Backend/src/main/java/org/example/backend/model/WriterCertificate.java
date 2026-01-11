@@ -13,7 +13,7 @@ public class WriterCertificate {
     private Long id;
 
     @Column(nullable = false, length = 80)
-    private String code; // MVP: código em texto (mais tarde faz hash)
+    private String code; 
 
     @Column(nullable = false)
     private boolean used = false;
