@@ -1,7 +1,7 @@
 package org.example.backend.service;
 
 import org.example.backend.model.WriterCertificate;
-import org.example.backend.repository.WriterCertificateRepository;
+import org.example.backend.Repositories.WriterCertificateRepository;
 import org.springframework.stereotype.Service;
 
 import java.time.Instant;
