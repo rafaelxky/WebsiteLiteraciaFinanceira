@@ -1,10 +1,13 @@
 package org.example.backend.model;
 
 import jakarta.persistence.*;
+import lombok.Data;
 
+// user deverá ser apagado porque vamos usar o do spring security
 @Entity
 @Table(name = "users",
         uniqueConstraints = @UniqueConstraint(columnNames = "email"))
+@Data
 public class User {
 
     @Id
@@ -26,18 +29,4 @@ public class User {
 
     public User() {}
 
-    public Long getId() { return id; }
-    public void setId(Long id) { this.id = id; }
-
-    public String getEmail() { return email; }
-    public void setEmail(String email) { this.email = email; }
-
-    public String getUserName() { return userName; }
-    public void setUserName(String userName) { this.userName = userName; }
-
-    public UserRole getRole() { return role; }
-    public void setRole(UserRole role) { this.role = role; }
-
-    public String getPasswordHash() { return passwordHash; }
-    public void setPasswordHash(String passwordHash) { this.passwordHash = passwordHash; }
 }

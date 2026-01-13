@@ -1,13 +1,16 @@
 package org.example.backend.service;
 
+import jakarta.persistence.EntityNotFoundException;
+import org.example.backend.Repositories.ArticleRepository;
 import org.example.backend.model.Article;
-import org.example.backend.repository.ArticleRepository;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class ArticleServiceImpl implements ArticleService {
+public class ArticleServiceImpl implements org.example.backend.service.ArticleService {
 
     private final ArticleRepository articleRepository;
 
@@ -16,14 +19,14 @@ public class ArticleServiceImpl implements ArticleService {
     }
 
     @Override
-    public List<Article> getAll() {
-        return articleRepository.findAllByOrderByIdDesc();
+    public Page<Article> getPage(Pageable pageable) {
+        return articleRepository.getPage(pageable);
     }
 
     @Override
     public Article getById(Long id) {
         return articleRepository.findById(id)
-                .orElseThrow(() -> new IllegalArgumentException("Article not found: " + id));
+                .orElseThrow(() -> new EntityNotFoundException("Article not found: " + id));
     }
 
     @Override

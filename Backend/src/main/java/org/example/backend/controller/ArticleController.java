@@ -2,10 +2,13 @@ package org.example.backend.controller;
 
 import org.example.backend.model.Article;
 import org.example.backend.service.ArticleService;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.awt.print.Pageable;
 import java.util.List;
 
 @RestController
@@ -18,9 +21,14 @@ public class ArticleController {
         this.articleService = articleService;
     }
 
+    // .../articles?page=int&size=int
     @GetMapping
-    public List<Article> getAll() {
-        return articleService.getAll();
+    public Page<Article> getPage(
+            @RequestParam int page,
+            @RequestParam int size
+    ) {
+        var pageable = PageRequest.of(page,size);
+        return articleService.getPage(pageable);
     }
 
     @GetMapping("/{id}")

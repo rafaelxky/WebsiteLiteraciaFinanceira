@@ -1,11 +1,14 @@
 package org.example.backend.service;
 
 import org.example.backend.model.Article;
+import org.springframework.boot.autoconfigure.security.SecurityProperties;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 import java.util.List;
 
 public interface ArticleService {
-    List<Article> getAll();
+    Page<Article> getPage(Pageable pageable);
 
     Article getById(Long id);
 
