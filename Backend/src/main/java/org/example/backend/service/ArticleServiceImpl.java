@@ -1,8 +1,9 @@
 package org.example.backend.service;
 
 import jakarta.persistence.EntityNotFoundException;
-import org.example.backend.Repositories.ArticleRepository;
+
 import org.example.backend.model.Article;
+import org.example.backend.repositories.ArticleRepository;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;

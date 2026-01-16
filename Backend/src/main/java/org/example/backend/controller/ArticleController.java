@@ -12,6 +12,7 @@ import java.awt.print.Pageable;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:5173")
 @RequestMapping("/api/articles")
 public class ArticleController {
 
@@ -21,11 +22,9 @@ public class ArticleController {
         this.articleService = articleService;
     }
 
-    // .../articles?page=int&size=int
+   
     @GetMapping
-    public Page<Article> getPage(
-            @RequestParam int page,
-            @RequestParam int size
+    public Page<Article> getPage(@RequestParam int page,@RequestParam int size
     ) {
         var pageable = PageRequest.of(page,size);
         return articleService.getPage(pageable);

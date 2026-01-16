@@ -3,7 +3,7 @@ package org.example.backend.model;
 import jakarta.persistence.*;
 import lombok.Data;
 
-// user deverá ser apagado porque vamos usar o do spring security
+
 @Entity
 @Table(name = "users",
         uniqueConstraints = @UniqueConstraint(columnNames = "email"))

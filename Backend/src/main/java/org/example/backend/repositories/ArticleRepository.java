@@ -1,4 +1,4 @@
-package org.example.backend.Repositories;
+package org.example.backend.repositories;
 
 import org.example.backend.model.Article;
 import org.springframework.data.domain.Page;
