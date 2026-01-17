@@ -21,7 +21,7 @@ public class ArticleServiceImpl implements org.example.backend.service.ArticleSe
 
     @Override
     public Page<Article> getPage(Pageable pageable) {
-        return articleRepository.getPage(pageable);
+        return articleRepository.findAll(pageable);
     }
 
     @Override
