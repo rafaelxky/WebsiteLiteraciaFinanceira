@@ -1,13 +1,12 @@
 package org.example.backend.service;
 
 import jakarta.persistence.EntityNotFoundException;
-import org.example.backend.Repositories.ArticleRepository;
-import org.example.backend.model.Article;
+import org.example.backend.model.article.ArticleCreateDto;
+import org.example.backend.repositories.ArticleRepository;
+import org.example.backend.model.article.Article;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 @Service
 public class ArticleServiceImpl implements org.example.backend.service.ArticleService {
@@ -19,8 +18,8 @@ public class ArticleServiceImpl implements org.example.backend.service.ArticleSe
     }
 
     @Override
-    public Page<Article> getPage(Pageable pageable) {
-        return articleRepository.getPage(pageable);
+    public Page<Article> findAll(Pageable pageable) {
+        return articleRepository.findAll(pageable);
     }
 
     @Override
@@ -30,8 +29,11 @@ public class ArticleServiceImpl implements org.example.backend.service.ArticleSe
     }
 
     @Override
-    public Article create(Article article) {
-        return articleRepository.save(article);
+    public Article create(ArticleCreateDto article) {
+        Article newArticle = new Article();
+        newArticle.setContent(article.getContent());
+        newArticle.setTitle(article.getTitle());
+        return articleRepository.save(newArticle);
     }
 
     @Override

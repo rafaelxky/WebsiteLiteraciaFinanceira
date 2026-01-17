@@ -1,14 +1,14 @@
-package org.example.backend.model;
+package org.example.backend.model.user;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import org.example.backend.model.auth.UserRole;
 
-// user deverá ser apagado porque vamos usar o do spring security
 @Entity
 @Table(name = "users",
         uniqueConstraints = @UniqueConstraint(columnNames = "email"))
 @Data
-public class User {
+public class AppUser {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,6 +27,6 @@ public class User {
     @Column(name = "password_hash", nullable = false, length = 255)
     private String passwordHash;
 
-    public User() {}
+    public AppUser() {}
 
 }

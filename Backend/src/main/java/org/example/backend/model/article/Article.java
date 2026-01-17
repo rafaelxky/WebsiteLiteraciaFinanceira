@@ -1,6 +1,8 @@
-package org.example.backend.model;
+package org.example.backend.model.article;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.experimental.Accessors;
 
@@ -20,6 +22,9 @@ public class Article {
     @Lob
     @Column(nullable = false)
     private String content;
+
+    @Column
+    private Long creatorId;
 
     public Article() {}
 }
