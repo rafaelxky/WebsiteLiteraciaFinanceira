@@ -28,6 +28,7 @@ public class ArticleServiceImpl implements org.example.backend.service.ArticleSe
                 .orElseThrow(() -> new EntityNotFoundException("Article not found: " + id));
     }
 
+    // assign article creatorId to user
     @Override
     public Article create(ArticleCreateDto article) {
         Article newArticle = new Article();
