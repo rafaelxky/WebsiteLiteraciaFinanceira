@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class ArticleServiceImpl implements org.example.backend.service.ArticleService {
+public class ArticleServiceImpl implements ArticleService {
 
     private final ArticleRepository articleRepository;
 
