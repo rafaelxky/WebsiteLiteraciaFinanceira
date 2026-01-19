@@ -19,11 +19,9 @@ export default function ArticleDetail() {
         const mapped = {
           id: String(data.id),
           title: data.title,
-          date: "2026-01-17",
-          category: "Orçamento",
-          image:
-            data.imageUrl ||
-            "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=1200&auto=format&fit=crop",
+          date: data.date || "",
+          category: data.category || "",
+          image: data.imageUrl || "",
           content: (data.content || "").split("\n").filter(Boolean),
         };
         if (mounted) setArticle(mapped);
@@ -71,13 +69,19 @@ export default function ArticleDetail() {
         </Link>
 
         <div className="articleDetail">
-          <p className="aCard__date">
-            {article.date} • {article.category}
-          </p>
+          {article.date || article.category ? (
+            <p className="aCard__date">
+              {article.date}
+              {article.date && article.category ? " • " : ""}
+              {article.category}
+            </p>
+          ) : null}
 
           <h1 className="articleDetail__title">{article.title}</h1>
 
-          <img className="articleDetail__img" src={article.image} alt={article.title} />
+          {article.image ? (
+            <img className="articleDetail__img" src={article.image} alt={article.title} />
+          ) : null}
 
           <div className="articleDetail__content">
             {article.content?.map((p, i) => (

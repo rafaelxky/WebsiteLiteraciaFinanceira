@@ -1,7 +1,5 @@
 import "../styles/Articles.css";
 import { useEffect, useMemo, useState } from "react";
-
-
 import ArticlesHero from "../components/article/ArticlesHero";
 import ArticleCard from "../components/article/ArticleCard";
 import ArticlesSidebar from "../components/article/ArticlesSidebar";
@@ -10,13 +8,6 @@ export default function Articles() {
   const [articles, setArticles] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
-
-  const popular = [
-    "Dicas Simples para Criar um Orçamento Pessoal",
-    "Estratégias para Pagar Cartões de Crédito",
-  ];
-
-  const categories = ["Orçamento", "Poupança", "Dívidas", "Investimentos", "Ganhar Dinheiro"];
 
   const [query, setQuery] = useState("");
   const [pickedCategory, setPickedCategory] = useState("");
@@ -33,11 +24,9 @@ export default function Articles() {
           id: String(a.id),
           title: a.title,
           excerpt: (a.content || "").slice(0, 140),
-          category: "Orçamento",
-          date: "2026-01-17",
-          image:
-            a.imageUrl ||
-            "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=1200&auto=format&fit=crop",
+          category: a.category || "",
+          date: a.date || "",
+          image: a.imageUrl || "",
           content: (a.content || "").split("\n").filter(Boolean),
         }));
         if (mounted) setArticles(mapped);
@@ -65,6 +54,17 @@ export default function Articles() {
       return matchesQuery && matchesCategory;
     });
   }, [query, pickedCategory, articles]);
+
+  const popular = useMemo(() => {
+    return articles
+      .filter((a) => a?.title)
+      .slice(0, 2)
+      .map((a) => a.title);
+  }, [articles]);
+
+  const categories = useMemo(() => {
+    return [...new Set(articles.map((a) => a.category).filter(Boolean))];
+  }, [articles]);
 
   return (
     <main className="articlesPage">
