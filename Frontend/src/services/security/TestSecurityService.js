@@ -2,20 +2,34 @@ export class TestSecurityService{
     constructor(baseUrl){
         this.baseUrl = baseUrl
     }
-    Login(userLoginDto){
-        localStorage.setItem("token","token-"+userLoginDto.email);
+
+    async Login(userLoginDto){
+        const res = await fetch(`${this.baseUrl}/login`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(userLoginDto)
+        });
+        if (!res.ok) throw new Error("Erro no login");
+        const data = await res.json();
+        if (data?.token) localStorage.setItem("token", data.token);
+        return data;
     }
+
     Logout(){
-        localStorage.removeItem("token")
+        localStorage.removeItem("token");
     }
+
     GetToken(){
-        return localStorage.GetToken("token");
+        return localStorage.getItem("token");
     }
+
     Encript(password){
-        return "encripted:"+password
+        const encoder = new TextEncoder();
+        return btoa(String.fromCharCode(...encoder.encode(password)));
     }
+
     IsLoggedIn(){
-        let token = localStorage.getItem("token")
-        return token != null
+        const token = localStorage.getItem("token");
+        return token != null;
     }
 } 

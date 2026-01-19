@@ -1,20 +1,37 @@
-import { UserPublicDto } from "../../models/users/UserPublicDto";
-
 export class TestUserService{
-    testUser = new UserPublicDto("username", 1, "Reader");
     constructor(baseUrl){
         this.baseUrl = baseUrl
     }
-    NewUser(createdUser){
-        return
+
+    async NewUser(createdUser){
+        const res = await fetch(this.baseUrl, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(createdUser)
+        });
+        if (!res.ok) throw new Error("Erro ao criar utilizador");
+        return res.json();
     }
-    UpdateUser(createdUser){
-        return
+
+    async UpdateUser(createdUser){
+        const res = await fetch(`${this.baseUrl}/${createdUser.id}`, {
+            method: "PUT",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(createdUser)
+        });
+        if (!res.ok) throw new Error("Erro ao atualizar utilizador");
+        return res.json();
     }
-    RemoveUser(){
-        return   
+
+    async RemoveUser(id){
+        const res = await fetch(`${this.baseUrl}/${id}`, { method: "DELETE" });
+        if (!res.ok) throw new Error("Erro ao remover utilizador");
+        return true;
     }
-    GetUserById(id){
-        return testUser
+
+    async GetUserById(id){
+        const res = await fetch(`${this.baseUrl}/${id}`);
+        if (!res.ok) throw new Error("Erro ao buscar utilizador");
+        return res.json();
     }
 }
