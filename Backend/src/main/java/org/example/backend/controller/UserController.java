@@ -1,41 +1,43 @@
 package org.example.backend.controller;
 
-import org.example.backend.model.User;
+import jakarta.persistence.EntityNotFoundException;
+import org.example.backend.model.user.AppUser;
+import org.example.backend.model.user.UserCreateDto;
+import org.example.backend.model.user.UserPublicDto;
 import org.example.backend.service.UserService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+// todo: secure endpoints
 @RestController
-@CrossOrigin(origins = "http://localhost:5173")
-@RequestMapping("/api/users")
+@RequestMapping("/api/user")
 public class UserController {
-
     private final UserService userService;
 
     public UserController(UserService userService) {
         this.userService = userService;
     }
 
+    // repeated email exception
     @PostMapping
-    public ResponseEntity<User> create(@RequestBody User user) {
-        User created = userService.createUser(user);
-        return ResponseEntity.status(HttpStatus.CREATED).body(created);
+    public ResponseEntity<AppUser> createUser(UserCreateDto user){
+        return ResponseEntity.status(HttpStatus.CREATED).body(userService.createUser(user));
     }
 
-    @GetMapping("/{id}")
-    public User getById(@PathVariable Long id) {
-        return userService.getById(id);
+    @GetMapping
+    public ResponseEntity<UserPublicDto> getUserById(Long id){
+        try {
+            UserPublicDto dto = userService.getById(id);
+            return ResponseEntity.ok(dto);
+        } catch (EntityNotFoundException e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        }
     }
 
-    @GetMapping("/by-email")
-    public User getByEmail(@RequestParam String email) {
-        return userService.getByEmail(email);
-    }
-
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Void> delete(@PathVariable Long id) {
-        userService.deleteUser(id);
-        return ResponseEntity.noContent().build();
-    }
+    // todo:
+    // get by email
+    // update
+    // delete
+    // findAll
 }

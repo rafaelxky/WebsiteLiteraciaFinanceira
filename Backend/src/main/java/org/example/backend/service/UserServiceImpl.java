@@ -1,41 +1,56 @@
 package org.example.backend.service;
 
-import org.example.backend.model.User;
+import jakarta.persistence.EntityNotFoundException;
+import org.example.backend.model.auth.UserRole;
+import org.example.backend.model.user.AppUser;
+import org.example.backend.model.user.UserCreateDto;
+import org.example.backend.model.user.UserPublicDto;
 import org.example.backend.repositories.UserRepository;
+import org.springframework.context.annotation.Lazy;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
 public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepository;
+    private final PasswordEncoder passwordEncoder;
 
-    public UserServiceImpl(UserRepository userRepository) {
+    public UserServiceImpl(UserRepository userRepository, @Lazy PasswordEncoder passwordEncoder) {
         this.userRepository = userRepository;
+        this.passwordEncoder = passwordEncoder;
     }
 
     @Override
-    public User createUser(User user) {
+    public AppUser createUser(UserCreateDto user) {
         if (userRepository.existsByEmail(user.getEmail())) {
             throw new IllegalArgumentException("Email already in use: " + user.getEmail());
         }
-        return userRepository.save(user);
+        var newUser = new AppUser();
+        newUser.setUserName(user.getUserName());
+        newUser.setEmail(user.getEmail());
+        newUser.setPasswordHash(passwordEncoder.encode(user.getPassword()));
+        newUser.setRole(UserRole.PUBLIC);
+        return userRepository.save(newUser);
     }
 
     @Override
-    public User getById(Long id) {
-        return userRepository.findById(id)
-                .orElseThrow(() -> new IllegalArgumentException("User not found: " + id));
+    public UserPublicDto getById(Long id) throws EntityNotFoundException {
+        var user = userRepository.findById(id)
+                .orElseThrow(() -> new EntityNotFoundException("User not found: " + id));
+        return UserPublicDto.builder().name(user.getUserName()).id(user.getId()).build();
     }
 
     @Override
-    public User getByEmail(String email) {
+    public AppUser getByEmail(String email) throws EntityNotFoundException {
         return userRepository.findByEmail(email)
-                .orElseThrow(() -> new IllegalArgumentException("User not found for email: " + email));
+                .orElseThrow(() -> new EntityNotFoundException("User not found for email: " + email));
     }
 
     @Override
     public void deleteUser(Long id) {
-        User existing = getById(id);
-        userRepository.delete(existing);
+        userRepository.deleteById(id);
     }
+
+    // updateUser
 }

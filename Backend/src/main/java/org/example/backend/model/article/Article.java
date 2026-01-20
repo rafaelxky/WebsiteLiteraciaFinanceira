@@ -1,6 +1,8 @@
-package org.example.backend.model;
+package org.example.backend.model.article;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.experimental.Accessors;
 
@@ -21,8 +23,8 @@ public class Article {
     @Column(nullable = false)
     private String content;
 
-    @Column(name = "image_url", length = 500)
-    private String imageUrl;
+    @Column
+    private Long creatorId;
 
     public Article() {}
 }
