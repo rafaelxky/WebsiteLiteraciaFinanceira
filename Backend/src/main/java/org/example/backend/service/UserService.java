@@ -1,14 +1,18 @@
 package org.example.backend.service;
 
-import org.example.backend.model.User;
+import org.example.backend.model.user.AppUser;
+import org.example.backend.model.user.UserCreateDto;
+import org.example.backend.model.user.UserPublicDto;
 
 public interface UserService {
-    User createUser(User user);
+    AppUser createUser(UserCreateDto user);
 
-    User getById(Long id);
+    UserPublicDto getById(Long id);
 
-    User getByEmail(String email);
+    AppUser getByEmail(String email);
 
     void deleteUser(Long id);
+
+    // updateUser
 }
 

@@ -1,13 +1,13 @@
 package org.example.backend.repositories;
 
-import org.example.backend.model.User;
+import org.example.backend.model.user.AppUser;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;
 
-public interface UserRepository extends JpaRepository<User, Long> {
+public interface UserRepository extends JpaRepository<AppUser, Long> {
 
-    Optional<User> findByEmail(String email);
+    Optional<AppUser> findByEmail(String email);
 
     boolean existsByEmail(String email);
     
