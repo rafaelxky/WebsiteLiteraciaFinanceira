@@ -1,12 +1,22 @@
 import "../styles/Login.css";
 
+
+
 export default function Login() {
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  function Submit(e) {
+    e.preventDefault();
+  }
+
   return (
     <main className="login-page">
       <section className="login-card">
         <h1>Login</h1>
 
-        <form className="login-form">
+        <form className="login-form" onSubmit={Submit}>
           <label className="login-field">
             Email
             <input type="email" placeholder="nome@exemplo.com" />
@@ -17,7 +27,7 @@ export default function Login() {
             <input type="password" placeholder="••••••••" />
           </label>
 
-          <button type="submit" className="login-submit">
+          <button onSubmit={Submit} type="submit" className="login-submit">
             Entrar
           </button>
 
@@ -33,3 +43,5 @@ export default function Login() {
     </main>
   );
 }
+
+
