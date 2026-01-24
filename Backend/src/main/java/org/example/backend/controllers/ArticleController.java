@@ -1,5 +1,6 @@
 package org.example.backend.controllers;
 
+import lombok.RequiredArgsConstructor;
 import org.example.backend.models.article.Article;
 import org.example.backend.models.article.ArticleCreateDto;
 import org.example.backend.services.ArticleService;
@@ -12,13 +13,10 @@ import org.springframework.web.bind.annotation.*;
 // todo: secure endpoints
 @RestController
 @RequestMapping("/api/articles")
+@RequiredArgsConstructor
 public class ArticleController {
 
     private final ArticleService articleService;
-
-    public ArticleController(ArticleService articleService) {
-        this.articleService = articleService;
-    }
 
     // .../articles?page=int&size=int
     @GetMapping

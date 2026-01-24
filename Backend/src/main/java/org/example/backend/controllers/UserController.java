@@ -1,6 +1,7 @@
 package org.example.backend.controllers;
 
 import jakarta.persistence.EntityNotFoundException;
+import lombok.RequiredArgsConstructor;
 import org.example.backend.models.user.AppUser;
 import org.example.backend.models.user.UserCreateDto;
 import org.example.backend.models.user.UserPublicDto;
@@ -20,12 +21,9 @@ import java.net.Authenticator;
 // todo: secure endpoints
 @RestController
 @RequestMapping("/api/user")
+@RequiredArgsConstructor
 public class UserController {
     private final UserService userService;
-
-    public UserController(UserService userService) {
-        this.userService = userService;
-    }
 
     // repeated email exception
     @PostMapping
