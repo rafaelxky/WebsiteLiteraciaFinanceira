@@ -1,8 +1,8 @@
-package org.example.backend.controller;
+package org.example.backend.controllers;
 
-import org.example.backend.model.article.Article;
-import org.example.backend.model.article.ArticleCreateDto;
-import org.example.backend.service.ArticleService;
+import org.example.backend.models.article.Article;
+import org.example.backend.models.article.ArticleCreateDto;
+import org.example.backend.services.ArticleService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.http.HttpStatus;

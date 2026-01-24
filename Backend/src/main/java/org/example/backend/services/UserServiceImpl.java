@@ -1,10 +1,10 @@
-package org.example.backend.service;
+package org.example.backend.services;
 
 import jakarta.persistence.EntityNotFoundException;
-import org.example.backend.model.auth.UserRole;
-import org.example.backend.model.user.AppUser;
-import org.example.backend.model.user.UserCreateDto;
-import org.example.backend.model.user.UserPublicDto;
+import org.example.backend.models.auth.UserRole;
+import org.example.backend.models.user.AppUser;
+import org.example.backend.models.user.UserCreateDto;
+import org.example.backend.models.user.UserPublicDto;
 import org.example.backend.repositories.UserRepository;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.security.crypto.password.PasswordEncoder;

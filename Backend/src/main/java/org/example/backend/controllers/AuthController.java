@@ -1,7 +1,7 @@
-package org.example.backend.controller;
+package org.example.backend.controllers;
 
-import org.example.backend.model.auth.LoginRequest;
-import org.example.backend.service.security.JwtService;
+import org.example.backend.models.auth.LoginRequest;
+import org.example.backend.services.security.JwtService;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.web.bind.annotation.PostMapping;

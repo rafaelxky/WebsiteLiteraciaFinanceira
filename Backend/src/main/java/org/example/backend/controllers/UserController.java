@@ -1,10 +1,10 @@
-package org.example.backend.controller;
+package org.example.backend.controllers;
 
 import jakarta.persistence.EntityNotFoundException;
-import org.example.backend.model.user.AppUser;
-import org.example.backend.model.user.UserCreateDto;
-import org.example.backend.model.user.UserPublicDto;
-import org.example.backend.service.UserService;
+import org.example.backend.models.user.AppUser;
+import org.example.backend.models.user.UserCreateDto;
+import org.example.backend.models.user.UserPublicDto;
+import org.example.backend.services.UserService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

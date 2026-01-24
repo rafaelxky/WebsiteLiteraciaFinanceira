@@ -1,8 +1,8 @@
-package org.example.backend.service;
+package org.example.backend.services;
 
-import org.example.backend.model.user.AppUser;
-import org.example.backend.model.user.UserCreateDto;
-import org.example.backend.model.user.UserPublicDto;
+import org.example.backend.models.user.AppUser;
+import org.example.backend.models.user.UserCreateDto;
+import org.example.backend.models.user.UserPublicDto;
 
 public interface UserService {
     AppUser createUser(UserCreateDto user);
