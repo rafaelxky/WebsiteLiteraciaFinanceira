@@ -7,6 +7,9 @@ import org.example.backend.models.user.UserCreateDto;
 import org.example.backend.models.user.UserPublicDto;
 import org.example.backend.repositories.UserRepository;
 import org.springframework.context.annotation.Lazy;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -49,6 +52,26 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void deleteUser(Long id) {
+        userRepository.deleteById(id);
+    }
+
+    @Override
+    public Page<UserPublicDto> findAll(Pageable pageable) {
+        var userPage = userRepository.findAll(pageable);
+        return userPage.map(user -> new UserPublicDto(user.getUserName(), user.getId()));
+    }
+
+    @Override
+    public void updateUser(UserCreateDto user, long id) {
+        var savedUser = userRepository.getReferenceById(id);
+        savedUser.setUserName(user.getUserName());
+        savedUser.setEmail(user.getEmail());
+        savedUser.setPasswordHash(passwordEncoder.encode(user.getPassword()));
+        userRepository.save(savedUser);
+    }
+
+    @Override
+    public void deleteUser(long id) {
         userRepository.deleteById(id);
     }
 
