@@ -1,4 +1,8 @@
+import { useState } from "react";
 import "../styles/Login.css";
+import { securityService } from "../Dependencies";
+import { UserLoginDto } from "../models/users/UserLoginDto";
+import { Link, Navigate } from "react-router-dom";
 
 
 
@@ -9,6 +13,9 @@ export default function Login() {
 
   function Submit(e) {
     e.preventDefault();
+    let loginDto = new UserLoginDto(email, password);
+    securityService.Login(loginDto);
+    Navigate("/")
   }
 
   return (
@@ -27,7 +34,7 @@ export default function Login() {
             <input type="password" placeholder="••••••••" />
           </label>
 
-          <button onSubmit={Submit} type="submit" className="login-submit">
+          <button type="submit" className="login-submit">
             Entrar
           </button>
 
@@ -35,9 +42,11 @@ export default function Login() {
 
         <div className="login-footer">
           <span>Ou</span>
-          <button type="button" className="login-link">
-            Criar utilizador
-          </button>
+          <Link to={"/createUser"}>
+            <button type="button" className="login-link" >
+              Criar utilizador
+            </button>
+          </Link>
         </div>
       </section>
     </main>

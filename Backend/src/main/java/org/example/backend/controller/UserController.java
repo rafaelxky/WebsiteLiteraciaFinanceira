@@ -1,5 +1,6 @@
 package org.example.backend.controller;
 
+import io.jsonwebtoken.io.IOException;
 import jakarta.persistence.EntityNotFoundException;
 import org.example.backend.model.user.AppUser;
 import org.example.backend.model.user.UserCreateDto;
@@ -8,6 +9,8 @@ import org.example.backend.service.UserService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.io.Console;
 
 // todo: secure endpoints
 @RestController
@@ -21,7 +24,7 @@ public class UserController {
 
     // repeated email exception
     @PostMapping
-    public ResponseEntity<AppUser> createUser(UserCreateDto user){
+    public ResponseEntity<AppUser> createUser(@RequestBody UserCreateDto user){
         return ResponseEntity.status(HttpStatus.CREATED).body(userService.createUser(user));
     }
 
