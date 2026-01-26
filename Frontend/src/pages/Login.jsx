@@ -2,7 +2,7 @@ import { useState } from "react";
 import "../styles/Login.css";
 import { securityService } from "../Dependencies";
 import { UserLoginDto } from "../models/users/UserLoginDto";
-import { Link, Navigate } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 
 
 
@@ -10,6 +10,8 @@ export default function Login() {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const Navigate = useNavigate();
 
   function Submit(e) {
     e.preventDefault();

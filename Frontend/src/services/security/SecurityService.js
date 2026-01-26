@@ -6,6 +6,8 @@ export class SecurityService{
     }
 
   async Login(userLoginDto){ 
+        console.log(userLoginDto);
+
         const request = new RequestBuilder()
         .Body(userLoginDto)
         .JsonContent()
@@ -15,8 +17,12 @@ export class SecurityService{
 
         const res = await fetch(request);
 
-        if (!res.ok) throw new Error("Erro no login");
-        const data = await res.json();
+          if (!res.ok) {
+            const text = await res.text();
+            console.error(`[Login] HTTP ${res.status} - ${text}`);
+            throw new Error("Loggin error");
+        }
+
         if (data?.token) localStorage.setItem("token", data.token);
         return data;
     }
