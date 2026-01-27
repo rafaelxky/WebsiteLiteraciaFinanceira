@@ -23,7 +23,6 @@ public class AuthController {
     // repeated email exception
     @PostMapping("/login")
     public String login(@RequestBody LoginRequest request) {
-
         authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
                         request.getEmail(),

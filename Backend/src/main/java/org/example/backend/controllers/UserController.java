@@ -53,6 +53,7 @@ public class UserController {
     }
 
     // delete
+    // secure
     public HttpStatus deleteUser(){
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         if (auth == null || !auth.isAuthenticated()) {
