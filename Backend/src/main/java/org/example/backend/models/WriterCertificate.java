@@ -1,4 +1,4 @@
-package org.example.backend.model;
+package org.example.backend.models;
 
 import jakarta.persistence.*;
 import java.time.Instant;

@@ -1,8 +1,8 @@
-package org.example.backend.model.user;
+package org.example.backend.models.user;
 
 import jakarta.persistence.*;
 import lombok.Data;
-import org.example.backend.model.auth.UserRole;
+import org.example.backend.models.auth.UserRole;
 
 @Entity
 @Table(name = "users",

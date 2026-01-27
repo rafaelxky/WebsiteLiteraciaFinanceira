@@ -1,6 +1,6 @@
 package org.example.backend.repositories;
 
-import org.example.backend.model.WriterCertificate;
+import org.example.backend.models.WriterCertificate;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

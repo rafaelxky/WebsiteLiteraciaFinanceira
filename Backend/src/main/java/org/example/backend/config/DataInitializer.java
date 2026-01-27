@@ -1,7 +1,7 @@
 package org.example.backend.config;
 
-import org.example.backend.model.user.AppUser;
-import org.example.backend.model.auth.UserRole;
+import org.example.backend.models.user.AppUser;
+import org.example.backend.models.auth.UserRole;
 import org.example.backend.repositories.UserRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;

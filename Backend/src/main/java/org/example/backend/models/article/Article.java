@@ -1,8 +1,6 @@
-package org.example.backend.model.article;
+package org.example.backend.models.article;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.experimental.Accessors;
 

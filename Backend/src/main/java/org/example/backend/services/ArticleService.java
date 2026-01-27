@@ -1,7 +1,7 @@
-package org.example.backend.service;
+package org.example.backend.services;
 
-import org.example.backend.model.article.Article;
-import org.example.backend.model.article.ArticleCreateDto;
+import org.example.backend.models.article.Article;
+import org.example.backend.models.article.ArticleCreateDto;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 

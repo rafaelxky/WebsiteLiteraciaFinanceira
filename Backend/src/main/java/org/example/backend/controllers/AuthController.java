@@ -1,7 +1,10 @@
-package org.example.backend.controller;
+package org.example.backend.controllers;
 
-import org.example.backend.model.auth.LoginRequest;
-import org.example.backend.service.security.JwtService;
+import lombok.RequiredArgsConstructor;
+import org.example.backend.models.auth.LoginRequest;
+import org.example.backend.models.user.AppUser;
+import org.example.backend.services.UserService;
+import org.example.backend.services.security.JwtService;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,12 +18,7 @@ public class AuthController {
 
     private final AuthenticationManager authenticationManager;
     private final JwtService jwtService;
-
-    public AuthController(AuthenticationManager authenticationManager,
-                          JwtService jwtService) {
-        this.authenticationManager = authenticationManager;
-        this.jwtService = jwtService;
-    }
+    private final UserService userService;
 
     // repeated email exception
     @PostMapping("/login")
@@ -33,6 +31,8 @@ public class AuthController {
                 )
         );
 
-        return jwtService.generateToken(request.getEmail());
+        AppUser user = userService.getByEmail(request.getEmail());
+
+        return jwtService.generateToken(user.getId(), request.getEmail());
     }
 }
