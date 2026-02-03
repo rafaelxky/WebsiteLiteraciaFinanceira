@@ -34,6 +34,9 @@ public class ArticleServiceImpl implements org.example.backend.service.ArticleSe
         Article newArticle = new Article();
         newArticle.setContent(article.getContent());
         newArticle.setTitle(article.getTitle());
+        newArticle.setCategory(article.getCategory());
+        newArticle.setDate(article.getDate());
+        newArticle.setImageUrl(article.getImageUrl());
         return articleRepository.save(newArticle);
     }
 
@@ -42,6 +45,9 @@ public class ArticleServiceImpl implements org.example.backend.service.ArticleSe
         Article existing = getById(id);
         existing.setTitle(article.getTitle());
         existing.setContent(article.getContent());
+        existing.setCategory(article.getCategory());
+        existing.setDate(article.getDate());
+        existing.setImageUrl(article.getImageUrl());
         return articleRepository.save(existing);
     }
 

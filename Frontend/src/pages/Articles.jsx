@@ -16,7 +16,7 @@ export default function Articles() {
     let mounted = true;
     (async () => {
       try {
-        const res = await fetch("http://localhost:8080/api/articles?page=0&size=10");
+        const res = await fetch("/api/articles?page=0&size=10");
         if (!res.ok) throw new Error("Erro ao buscar artigos");
         const page = await res.json();
         const content = page?.content || [];
