@@ -47,3 +47,20 @@ build/
 
 # local env files (ex: token)
 .env.local
+
+# Backend (Maven)
+Backend/target/
+
+# Frontend (Vite)
+Frontend/dist/
+
+# Local output
+out/
+
+# Local env files
+.env
+.env.*
+
+# Nginx local runtime
+nginx/logs/
+nginx/nginx.pid

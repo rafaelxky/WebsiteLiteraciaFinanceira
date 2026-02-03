@@ -13,7 +13,7 @@ export default function ArticleDetail() {
     let mounted = true;
     (async () => {
       try {
-        const res = await fetch(`http://localhost:8080/api/articles/${id}`);
+        const res = await fetch(`/api/articles/${id}`);
         if (!res.ok) throw new Error("Erro ao buscar artigo");
         const data = await res.json();
         const mapped = {

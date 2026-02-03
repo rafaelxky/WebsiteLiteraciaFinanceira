@@ -9,6 +9,7 @@ import Articles from "./pages/Articles";
 import ArticleDetail from "./pages/ArticleDetail";
 import ChatPage from "./pages/ChatPage"; 
 import Login from "./pages/Login";
+import NewArticle from "./pages/NewArticle";
 
 export default function App() {
   return (
@@ -21,6 +22,7 @@ export default function App() {
         <Route path="/artigos/:id" element={<ArticleDetail />} />
         <Route path="/chat" element={<ChatPage />} /> 
         <Route path="/login" element={<Login />} />
+        <Route path="/artigos/novo" element={<NewArticle />} />
       </Routes>
 
       <Footer />

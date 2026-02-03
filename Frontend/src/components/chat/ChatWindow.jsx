@@ -6,41 +6,7 @@ function createId() {
   return crypto?.randomUUID?.() ?? String(Date.now() + Math.random());
 }
 
-function getMockBotReply(userText) {
-  const text = userText.toLowerCase();
-
-  if (text.includes("fundo") || text.includes("emerg")) {
-    return (
-      "Plano rápido para fundo de emergência:\n" +
-      "1) Calcula despesas essenciais mensais.\n" +
-      "2) Objetivo inicial: 1 mês (depois sobe para 3–6).\n" +
-      "3) Automatiza uma transferência semanal/mensal.\n" +
-      "4) Guarda em conta à ordem remunerada/depósito de alta liquidez.\n" +
-      "Se quiseres, diz-me as tuas despesas mensais e eu ajudo a definir um valor."
-    );
-  }
-
-  if (
-    text.includes("dívida") ||
-    text.includes("divida") ||
-    text.includes("cartão") ||
-    text.includes("cartao")
-  ) {
-    return (
-      "Para dívidas, usa uma destas estratégias:\n" +
-      "• Avalanche: paga primeiro a dívida com maior juro.\n" +
-      "• Bola de neve: paga primeiro a mais pequena.\n" +
-      "Diz-me: valores + taxas de juro + prestação mínima e eu organizo por prioridade."
-    );
-  }
-
-  return (
-    "Percebi. Para te responder bem, diz-me:\n" +
-    "1) Qual é o teu objetivo (poupar, investir, pagar dívida, orçamento)?\n" +
-    "2) Em quanto tempo?\n" +
-    "3) Quais são os números (rendimento, despesas, dívida, poupança atual)?"
-  );
-}
+const API_BASE_URL = import.meta.env.VITE_API_URL ?? "";
 
 export default function ChatWindow() {
   const initialMessages = useMemo(
@@ -73,10 +39,25 @@ export default function ChatWindow() {
     addMessage("user", trimmed);
 
     setIsTyping(true);
-    await new Promise((r) => setTimeout(r, 450));
+    try {
+      const response = await fetch(`${API_BASE_URL}/api/chat`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ message: trimmed }),
+      });
 
-    addMessage("assistant", getMockBotReply(trimmed));
-    setIsTyping(false);
+      if (!response.ok) {
+        throw new Error(`API error: ${response.status}`);
+      }
+
+      const data = await response.json();
+      addMessage("assistant", data.reply ?? "Sem resposta do servidor.");
+    } catch (error) {
+      addMessage("assistant", "Ocorreu um erro ao ligar ao servidor.");
+      console.error(error);
+    } finally {
+      setIsTyping(false);
+    }
   }
 
   return (

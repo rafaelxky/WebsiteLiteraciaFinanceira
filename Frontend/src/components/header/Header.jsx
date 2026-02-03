@@ -14,6 +14,7 @@ export function Header(props){
             </Link>
             <SearchBar onSearch={null}></SearchBar>
             <HeaderBtn link="/artigos">Ler</HeaderBtn>
+            <HeaderBtn link="/artigos/novo">Adicionar noticia</HeaderBtn>
             <HeaderBtn link="/chat">Chat</HeaderBtn>
 
             {securityService.IsLoggedIn() ? 
