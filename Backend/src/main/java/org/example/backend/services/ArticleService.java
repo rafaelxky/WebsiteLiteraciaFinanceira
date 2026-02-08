@@ -10,7 +10,7 @@ public interface ArticleService {
 
     Article getById(Long id);
 
-    Article create(ArticleCreateDto article);
+    public Article create(ArticleCreateDto article, Long creatorId);
 
     Article update(Long id, Article article);
 

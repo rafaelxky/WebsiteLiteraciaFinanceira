@@ -30,10 +30,11 @@ public class ArticleServiceImpl implements org.example.backend.services.ArticleS
 
     // assign article creatorId to user
     @Override
-    public Article create(ArticleCreateDto article) {
+    public Article create(ArticleCreateDto article, Long creatorId) {
         Article newArticle = new Article();
         newArticle.setContent(article.getContent());
         newArticle.setTitle(article.getTitle());
+        newArticle.setId(creatorId);
         return articleRepository.save(newArticle);
     }
 

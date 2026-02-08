@@ -41,7 +41,7 @@ public class UserController {
         }
     }
 
-    // secure
+    // update
     @PutMapping
     public HttpStatus updateUser(@RequestBody UserCreateDto user){
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
@@ -70,5 +70,4 @@ public class UserController {
         var pageable = PageRequest.of(page, size);
         return userService.findAll(pageable);
     }
-    // findAll
 }

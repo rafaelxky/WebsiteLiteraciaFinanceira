@@ -5,8 +5,11 @@ import org.example.backend.models.auth.LoginRequest;
 import org.example.backend.models.user.AppUser;
 import org.example.backend.services.UserService;
 import org.example.backend.services.security.JwtService;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.AuthenticationException;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,17 +26,21 @@ public class AuthController {
 
     // repeated email exception
     @PostMapping("/login")
-    public String login(@RequestBody LoginRequest request) {
+    public ResponseEntity<String> login(@RequestBody LoginRequest request) {
 
-        authenticationManager.authenticate(
-                new UsernamePasswordAuthenticationToken(
-                        request.getEmail(),
-                        request.getPassword()
-                )
-        );
+        try {
+            authenticationManager.authenticate(
+                    new UsernamePasswordAuthenticationToken(
+                            request.getEmail(),
+                            request.getPassword()
+                    )
+            );
+        } catch (AuthenticationException ex) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Bad credentials");
+        }
 
         AppUser user = userService.getByEmail(request.getEmail());
 
-        return jwtService.generateToken(user.getId(), request.getEmail());
+        return ResponseEntity.ok(jwtService.generateToken(user.getId(), request.getEmail()));
     }
 }
