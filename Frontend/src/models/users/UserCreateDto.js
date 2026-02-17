@@ -1,7 +1,7 @@
-export class UserCreateDto{
-    constructor(email, password, username){
+export default class UserCreateDto{
+    constructor(email, password, userName){
         this.email = email
         this.password = password
-        this.username = username
+        this.userName = userName
     }
 } 

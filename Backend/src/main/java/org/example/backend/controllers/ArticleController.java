@@ -1,8 +1,9 @@
-package org.example.backend.controller;
+package org.example.backend.controllers;
 
-import org.example.backend.model.article.Article;
-import org.example.backend.model.article.ArticleCreateDto;
-import org.example.backend.service.ArticleService;
+import lombok.RequiredArgsConstructor;
+import org.example.backend.models.article.Article;
+import org.example.backend.models.article.ArticleCreateDto;
+import org.example.backend.services.ArticleService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.http.HttpStatus;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @CrossOrigin(origins = "http://localhost:5173")
 @RequestMapping("/api/articles")
+@RequiredArgsConstructor
 public class ArticleController {
 
     private final ArticleService articleService;
@@ -21,7 +23,7 @@ public class ArticleController {
         this.articleService = articleService;
     }
 
-   
+    // .../articles?page=int&size=int
     @GetMapping
     public Page<Article> getPage(@RequestParam int page,@RequestParam int size
     ) {

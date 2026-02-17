@@ -1,15 +1,15 @@
-package org.example.backend.service;
+package org.example.backend.services;
 
 import jakarta.persistence.EntityNotFoundException;
-import org.example.backend.model.article.ArticleCreateDto;
+import org.example.backend.models.article.ArticleCreateDto;
 import org.example.backend.repositories.ArticleRepository;
-import org.example.backend.model.article.Article;
+import org.example.backend.models.article.Article;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 @Service
-public class ArticleServiceImpl implements org.example.backend.service.ArticleService {
+public class ArticleServiceImpl implements org.example.backend.services.ArticleService {
 
     private final ArticleRepository articleRepository;
 

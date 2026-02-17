@@ -1,8 +1,8 @@
-package org.example.backend.service.security;
+package org.example.backend.services.security;
 
 
-import org.example.backend.model.user.AppUser;
-import org.example.backend.service.UserService;
+import org.example.backend.models.user.AppUser;
+import org.example.backend.services.UserService;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;

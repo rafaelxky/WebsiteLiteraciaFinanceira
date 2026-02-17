@@ -1,6 +1,6 @@
 export class UserPublicDto{
-    constructor(username, id, role){
-        this.username = username
+    constructor(userName, id, role){
+        this.userName = userName
         this.id = id
         this.role = role
     }

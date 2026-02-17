@@ -1,6 +1,6 @@
-package org.example.backend.service;
+package org.example.backend.services;
 
-import org.example.backend.model.WriterCertificate;
+import org.example.backend.models.WriterCertificate;
 import org.example.backend.repositories.WriterCertificateRepository;
 import org.springframework.stereotype.Service;
 
