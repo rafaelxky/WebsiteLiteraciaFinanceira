@@ -28,12 +28,12 @@ export default function Login() {
         <form className="login-form" onSubmit={Submit}>
           <label className="login-field">
             Email
-            <input type="email" placeholder="nome@exemplo.com" />
+            <input type="email" placeholder="nome@exemplo.com" value={email}  onChange={e => setEmail(e.target.value)} />
           </label>
 
           <label className="login-field">
             Palavra-passe
-            <input type="password" placeholder="••••••••" />
+            <input type="password" placeholder="••••••••" value={password} onChange={e => setPassword(e.target.value)}/>
           </label>
 
           <button type="submit" className="login-submit">

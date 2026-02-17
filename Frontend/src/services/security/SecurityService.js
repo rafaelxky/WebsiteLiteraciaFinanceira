@@ -5,6 +5,7 @@ export class SecurityService{
         this.baseUrl = baseUrl;
     }
 
+    // encript password
   async Login(userLoginDto){ 
         console.log(userLoginDto);
 
@@ -23,8 +24,12 @@ export class SecurityService{
             throw new Error("Loggin error");
         }
 
-        console.log("Successfully logged in!");
-        if (data?.token) localStorage.setItem("token", data.token);
+        if (data?.token) {
+            localStorage.setItem("token", data.token);
+            console.log("Successfully logged in!");
+        } else {
+            console.error("Did not receive jwt token!");
+        }
         return data;
     }
 

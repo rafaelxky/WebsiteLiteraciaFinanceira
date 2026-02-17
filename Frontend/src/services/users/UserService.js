@@ -3,6 +3,7 @@ export class UserService {
         this.baseUrl = baseUrl
     }
 
+    // encript password
     async NewUser(createdUser) {
         console.log(createdUser);
         const res = await fetch(this.baseUrl, {

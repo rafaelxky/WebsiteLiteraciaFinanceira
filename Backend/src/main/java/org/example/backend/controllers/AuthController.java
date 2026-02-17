@@ -32,7 +32,7 @@ public class AuthController {
         );
 
         AppUser user = userService.getByEmail(request.getEmail());
-
-        return jwtService.generateToken(user.getId(), request.getEmail());
+        String token = jwtService.generateToken(user.getId(), request.getEmail());
+        return "{\"token\":\"" + token + "\"}";
     }
 }
