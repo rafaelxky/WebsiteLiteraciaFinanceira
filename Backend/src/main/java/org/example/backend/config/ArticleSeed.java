@@ -1,6 +1,6 @@
 package org.example.backend.config;
 
-import org.example.backend.model.article.Article;
+import org.example.backend.models.article.Article;
 import org.example.backend.repositories.ArticleRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;

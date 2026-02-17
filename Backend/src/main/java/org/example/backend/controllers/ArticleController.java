@@ -19,10 +19,6 @@ public class ArticleController {
 
     private final ArticleService articleService;
 
-    public ArticleController(ArticleService articleService) {
-        this.articleService = articleService;
-    }
-
     // .../articles?page=int&size=int
     @GetMapping
     public Page<Article> getPage(@RequestParam int page,@RequestParam int size
