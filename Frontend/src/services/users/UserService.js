@@ -10,12 +10,25 @@ export class UserService {
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(createdUser)
         });
+
+         let data;
+        try {
+            data = await res.json();
+        } catch {
+            data = null;
+        }
+
+        if(res.status == 409){
+            console.error("Email already in use!", data);
+            throw new Error("Email conflict");
+        }
         if (!res.ok) {
             const text = await res.text();
             console.error("Backend error:", res.status, text);
             throw new Error(text || "Erro ao criar utilizador");
         }
-        return res.json();
+        console.log("Created user!");
+        return data;
     }
 
     async UpdateUser(createdUser) {

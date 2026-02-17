@@ -27,8 +27,14 @@ public class UserController {
 
     // repeated email exception
     @PostMapping
-    public ResponseEntity<AppUser> createUser(UserCreateDto user){
-        return ResponseEntity.status(HttpStatus.CREATED).body(userService.createUser(user));
+    public ResponseEntity<?> createUser(@RequestBody UserCreateDto user){
+        try {
+            AppUser created = userService.createUser(user);
+            return ResponseEntity.status(HttpStatus.CREATED).body(created);
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.status(HttpStatus.CONFLICT)
+                .body("{\"error\":\"" + e.getMessage() + "\"}");
+        }
     }
 
     @GetMapping
@@ -53,7 +59,6 @@ public class UserController {
     }
 
     // delete
-    // secure
     public HttpStatus deleteUser(){
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         if (auth == null || !auth.isAuthenticated()) {
@@ -71,5 +76,4 @@ public class UserController {
         var pageable = PageRequest.of(page, size);
         return userService.findAll(pageable);
     }
-    // findAll
 }

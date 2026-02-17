@@ -16,13 +16,14 @@ export class SecurityService{
         .Build();
 
         const res = await fetch(request);
+         const data = await res.json(); 
 
           if (!res.ok) {
-            const text = await res.text();
-            console.error(`[Login] HTTP ${res.status} - ${text}`);
+            console.error(`[Login] HTTP ${res.status}`);
             throw new Error("Loggin error");
         }
 
+        console.log("Successfully logged in!");
         if (data?.token) localStorage.setItem("token", data.token);
         return data;
     }
