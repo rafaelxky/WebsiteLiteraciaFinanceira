@@ -6,7 +6,7 @@ import { Link, Navigate, useNavigate } from "react-router-dom";
 
 
 
-export default function Login() {
+export default function Login({setLoggedIn}) {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -17,6 +17,7 @@ export default function Login() {
     e.preventDefault();
     let loginDto = new UserLoginDto(email, password);
     securityService.Login(loginDto);
+    setLoggedIn(true);
     Navigate("/")
   }
 

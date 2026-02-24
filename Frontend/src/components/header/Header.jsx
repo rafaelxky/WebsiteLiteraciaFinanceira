@@ -5,10 +5,9 @@ import { Link } from "react-router-dom";
 import { SearchBar } from "./HeaderSearchBar";
 import { securityService } from "../../Dependencies";
 
-export function Header(props){
-
+export function Header({ isLoggedIn }) {
     return (
-        <div className = "header">
+        <div className="header">
             <Link to="/" className="no-underline">
                 <h1>Literacia Financeira</h1>
             </Link>
@@ -17,11 +16,11 @@ export function Header(props){
             <HeaderBtn link="/artigos/novo">Adicionar noticia</HeaderBtn>
             <HeaderBtn link="/chat">Chat</HeaderBtn>
 
-            {securityService.IsLoggedIn() ? 
+            {isLoggedIn ? (
             <HeaderBtn link="/logout">Logout</HeaderBtn>
-            :
+            ) : (
             <HeaderBtn link="/login">Login</HeaderBtn>
-        }
+            )}
         </div>
     );
 }
