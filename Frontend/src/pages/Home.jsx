@@ -11,25 +11,25 @@ export default function Home() {
   const projects = [
     {
       id: "budget",
-      title: "Budget Tracker",
-      description: "Tracks income and expenses with a simple UI.",
-      cta: "Open",
+      title: "Rastreador de orçamento",
+      description: "Acompanha rendimentos e despesas com uma interface simples.",
+      cta: "Ir",
       to: "/projetos#budget",
       icon: "💸",
     },
     {
       id: "savings",
-      title: "Savings Planner",
-      description: "Helps you plan savings goals and timelines.",
-      cta: "Open",
+      title: "Planeador de Poupança",
+      description: "Ajuda-te a planear metas e prazos de poupança.",
+      cta: "Ir",
       to: "/projetos#savings",
       icon: "🐷",
     },
     {
       id: "debt",
-      title: "Debt Payoff Calculator",
-      description: "Simulates different payoff strategies (snowball vs avalanche).",
-      cta: "Open",
+      title: "Calculadora de Quitação de Dívidas",
+      description: "Simula diferentes estratégias de recompensa (bola de neve vs avalanche).",
+      cta: "Ir",
       to: "/projetos#debt",
       icon: "🧮",
     },
@@ -39,18 +39,16 @@ export default function Home() {
     <main className="home">
       <Hero
         title={name}
-        subtitle="Learn practical personal finance through simple tools and small projects."
+        subtitle="Aprenda finanças pessoais práticas através de ferramentas simples e pequenos projetos."
       />
 
       <section id="about" className="about-section section">
         <SectionTitle
-          title="About"
-          subtitle="O objetivo é tornar conceitos de dinheiro simples e práticos."
+          title="Sobre"
         />
 
         <p>
-          This website is a portfolio of small tools and experiments focused on financial
-          literacy. The goal is to make money concepts simple and practical.
+          Este site é um portefólio de pequenas ferramentas e experiências focadas em finanças literacia. O objetivo é tornar os conceitos de dinheiro simples e práticos.
         </p>
       </section>
 
