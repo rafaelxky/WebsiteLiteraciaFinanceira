@@ -56,8 +56,8 @@ export class UserService {
         if (!res.ok) throw new Error("Erro ao buscar utilizador");
         return res.json();
     }
-    async GetUserByEmail(id) {
-        const res = await fetch(`${this.baseUrl}/${id}`);
+    async GetUserByEmail(email) {
+        const res = await fetch(`${this.baseUrl}/getByEmail?email=${email}`);
         if (!res.ok) throw new Error("Erro ao buscar utilizador");
         return res.json();
     }

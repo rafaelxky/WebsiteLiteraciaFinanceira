@@ -1,3 +1,4 @@
+import { usersService } from "../../Dependencies";
 import { WrongCredentialsError } from "../../errors/WrongCredentialsError";
 import { RequestBuilder } from "../web/RequestBuilder";
 
@@ -28,6 +29,8 @@ export class SecurityService{
 
         if (data?.token) {
             localStorage.setItem("token", data.token);
+            let user = await usersService.GetUserByEmail(userLoginDto.email);
+            localStorage.setItem("user", user);
             console.log("Successfully logged in!");
         } else {
             throw new Error("Did not receive jwt token!")
@@ -37,6 +40,7 @@ export class SecurityService{
 
     Logout(){
         localStorage.removeItem("token");
+        localStorage.removeItem("user");
     }
 
     GetToken(){
@@ -51,5 +55,13 @@ export class SecurityService{
     IsLoggedIn(){
         const token = localStorage.getItem("token");
         return token != null;
+    }
+
+    IsUserWriter(){
+        const user = localStorage.getItem("user");
+        if(user == null){
+            return false;
+        }
+        return user.role == "WRITE";
     }
 }
