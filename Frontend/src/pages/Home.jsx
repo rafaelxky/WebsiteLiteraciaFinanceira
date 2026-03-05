@@ -4,6 +4,7 @@ import Hero from "../components/home/Hero";
 import SectionTitle from "../components/home/SectionTitle";
 import ProjectCard from "../components/home/ProjectCard";
 
+// todo: mudara para pt-pt
 export default function Home() {
   const name = "Literacia Financeira";
 

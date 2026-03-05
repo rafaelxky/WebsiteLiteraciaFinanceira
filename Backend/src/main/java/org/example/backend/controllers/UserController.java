@@ -51,7 +51,7 @@ public class UserController {
     @GetMapping("/getByEmail")
     public ResponseEntity<UserPublicDto> getUserByEmail(@RequestParam String email){
         try {
-            UserPublicDto dto = userService.getByEmail(email);
+            UserPublicDto dto = userService.getPublicByEmail(email);
             return ResponseEntity.ok(dto);
         } catch (EntityNotFoundException e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();

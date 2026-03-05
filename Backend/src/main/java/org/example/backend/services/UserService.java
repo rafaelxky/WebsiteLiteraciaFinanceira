@@ -5,12 +5,14 @@ import org.example.backend.models.user.UserCreateDto;
 import org.example.backend.models.user.UserPublicDto;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.example.backend.models.user.AppUser;
 
 public interface UserService {
     AppUser createUser(UserCreateDto user);
 
     UserPublicDto getById(Long id);
 
+    UserPublicDto getPublicByEmail(String email);
     AppUser getByEmail(String email);
 
     void deleteUser(Long id);

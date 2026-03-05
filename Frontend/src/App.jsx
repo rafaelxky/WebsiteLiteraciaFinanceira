@@ -24,7 +24,6 @@ export default function App() {
   return (
     <div className="app-layout">
       <Header isLoggedIn={isLoggedIn} />
-
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/artigos" element={<Articles />} />
@@ -36,7 +35,6 @@ export default function App() {
         <Route path="/artigos/novo" element={<NewArticle />} />
         <Route path="/status" element={<StatusPage/>} />
       </Routes>
-
       <Footer />
     </div>
   );

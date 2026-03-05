@@ -41,13 +41,21 @@ public class UserServiceImpl implements UserService {
     public UserPublicDto getById(Long id) throws EntityNotFoundException {
         var user = userRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("User not found: " + id));
-        return UserPublicDto.builder().name(user.getUserName()).id(user.getId()).build();
+        return UserPublicDto.builder().name(user.getUserName()).id(user.getId()).role(user.getRole()).build();
     }
 
     @Override
-    public AppUser getByEmail(String email) throws EntityNotFoundException {
-        return userRepository.findByEmail(email)
+    public UserPublicDto getPublicByEmail(String email) throws EntityNotFoundException {
+        var user = userRepository.findByEmail(email)
                 .orElseThrow(() -> new EntityNotFoundException("User not found for email: " + email));
+        return UserPublicDto.builder().name(user.getUserName()).id(user.getId()).role(user.getRole()).build();
+    }
+
+   @Override
+    public AppUser getByEmail(String email) throws EntityNotFoundException {
+        var user = userRepository.findByEmail(email)
+                .orElseThrow(() -> new EntityNotFoundException("User not found for email: " + email));
+        return user;
     }
 
     @Override
@@ -58,7 +66,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public Page<UserPublicDto> findAll(Pageable pageable) {
         var userPage = userRepository.findAll(pageable);
-        return userPage.map(user -> new UserPublicDto(user.getUserName(), user.getId()));
+        return userPage.map(user -> new UserPublicDto(user.getUserName(), user.getId(), user.getRole()));
     }
 
     @Override
