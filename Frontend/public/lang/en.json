@@ -1,0 +1,15 @@
+{
+    "homeHeader": "Financial Literacy",
+    "homeDescription": "Learn practical personal finance through simple tools and small projects.",
+    "cta": "Go to",
+    "proj1Title": "Budget Tracker", 
+    "proj1Description": "Track income and expenses with a simple interface.",
+    "proj2Title": "Savings Planner",
+    "proj2Description":  "It helps you plan savings goals and timelines.",
+    "proj3Title":  "Debt Settlement Calculator",
+    "proj3Description": "Simulates different reward strategies (snowball vs avalanche).",
+    "aboutTitle": "About",
+    "aboutBody": "This site is a portfolio of small tools and experiences focused on finance literacy. The goal is to make the concepts of money simple and practical.",
+    "projectTitle": "Projects",
+    "projectBody": "Simple tools to get you started right away."
+}
