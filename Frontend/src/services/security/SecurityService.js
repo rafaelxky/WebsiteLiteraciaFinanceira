@@ -1,3 +1,4 @@
+import { WrongCredentialsError } from "../../errors/WrongCredentialsError";
 import { RequestBuilder } from "../web/RequestBuilder";
 
 export class SecurityService{
@@ -17,18 +18,19 @@ export class SecurityService{
         .Build();
 
         const res = await fetch(request);
-         const data = await res.json(); 
 
           if (!res.ok) {
             console.error(`[Login] HTTP ${res.status}`);
-            throw new Error("Loggin error");
+            throw new WrongCredentialsError("Loggin error");
         }
+        
+         const data = await res.json(); 
 
         if (data?.token) {
             localStorage.setItem("token", data.token);
             console.log("Successfully logged in!");
         } else {
-            console.error("Did not receive jwt token!");
+            throw new Error("Did not receive jwt token!")
         }
         return data;
     }

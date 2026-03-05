@@ -14,6 +14,7 @@ import NewArticle from "./pages/NewArticle";
 import Logout from "./pages/Logout";
 import { useState } from "react";
 import { securityService } from "./Dependencies";
+import StatusPage from "./pages/Status";
 
 export default function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(
@@ -33,6 +34,7 @@ export default function App() {
         <Route path="/logout" element={<Logout setLoggedIn={setIsLoggedIn} />} />
         <Route path="/createUser" element={<CreateUser />} />
         <Route path="/artigos/novo" element={<NewArticle />} />
+        <Route path="/status" element={<StatusPage/>} />
       </Routes>
 
       <Footer />

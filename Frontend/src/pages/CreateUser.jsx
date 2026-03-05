@@ -2,6 +2,8 @@ import { useState } from "react";
 import UserCreateDto from "../models/users/UserCreateDto"
 import { securityService, usersService } from "../Dependencies";
 import { Navigate, useNavigate } from "react-router-dom";
+import { EmailConflictError } from "../errors/EmailConflictError";
+import { ServerError } from "../errors/ServerError";
 
 export default function CreateUser(){
 
@@ -12,14 +14,26 @@ export default function CreateUser(){
 
     const navigate = useNavigate();
 
-  function Submit(e){
+  async function Submit(e){
     e.preventDefault();
     let userCreate = new UserCreateDto(email, password, name);
     if(password != passwordConfirm){
-        return <Navigate to="/"/>;   
+      navigate("/status", {state: {message: "\"Palavra-passe\" e \"Confirmar Palavra-passe\" não são iguais! Tente novament.", nextPage: "/createUser"}});
     }
-    usersService.NewUser(userCreate);
-    navigate("/");
+    try {
+      await usersService.NewUser(userCreate);
+      navigate("/status", {state: {message: "Utilizador criado com sucesso!", nextPage: "/"}});
+    } catch (error) {
+      if(error instanceof EmailConflictError){
+        navigate("/status", {state: {message: "Erro ao criar utilizador, este email já está a ser utilizado!", nextPage: "/createUser"}});
+      } else 
+      if(error instanceof ServerError){
+        navigate("/status", {state: {message: "Erro no servidor, tente outra vez mais tarde! Pedimos desculpa pela inconveniencia :(", nextPage: "/createUser"}});
+      } 
+      else {
+        navigate("/status", {state: {message: "Erro desconhecido ao criar utilizador! Tente de novo.", nextPage: "/createUser"}});
+      }
+    }
   }
 
 return (

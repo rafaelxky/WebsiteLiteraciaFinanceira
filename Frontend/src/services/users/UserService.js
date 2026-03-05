@@ -1,3 +1,6 @@
+import { EmailConflictError } from "../../errors/EmailConflictError";
+import {ServerError} from "../../errors/ServerError";
+
 export class UserService {
     constructor(baseUrl) {
         this.baseUrl = baseUrl
@@ -21,12 +24,12 @@ export class UserService {
 
         if(res.status == 409){
             console.error("Email already in use!", data);
-            throw new Error("Email conflict");
+            throw new EmailConflictError();
         }
         if (!res.ok) {
             const text = await res.text();
             console.error("Backend error:", res.status, text);
-            throw new Error(text || "Erro ao criar utilizador");
+            throw new ServerError();
         }
         console.log("Created user!");
         return data;
