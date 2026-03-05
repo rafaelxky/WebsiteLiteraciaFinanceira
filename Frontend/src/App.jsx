@@ -13,7 +13,7 @@ import CreateUser from "./pages/CreateUser";
 import NewArticle from "./pages/NewArticle";
 import Logout from "./pages/Logout";
 import { useState } from "react";
-import { securityService } from "./Dependencies";
+import { langService, securityService } from "./Dependencies";
 import StatusPage from "./pages/Status";
 
 export default function App() {

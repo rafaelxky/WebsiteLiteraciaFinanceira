@@ -3,55 +3,17 @@ import { createRoot } from 'react-dom/client'
 import './styles/index.css'
 import App from './App.jsx'
 import { BrowserRouter } from 'react-router-dom'
+import { langService } from './Dependencies.js'
 
-createRoot(document.getElementById('root')).render(
-  <StrictMode>
-     <BrowserRouter>
-      <App />
-    </BrowserRouter>
-  </StrictMode>,
-)
+async function init() {
+  await langService.GetLanguageMap();
+  createRoot(document.getElementById('root')).render(
+    <StrictMode>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </StrictMode>,
+  )
+}
 
-// main
-  // header 
-    // search bar X
-    // read btn X
-    // login / logout 
-  // footer 
-    // info
-  // body 
-    // title
-    // text
-    // btn
-// login 
-  // form 
-// articles page
-  // grelha de artigos
-// article page
-  // title 
-  // body
-
-// services
-  // user
-  // loggin
-  // articles
-
-// models
-  // article
-  /*
-  {
-    "id": "int",
-    "title": "title",
-    "body": "body"
-  }
-  user:
-  {
-    "id": "int",
-    "username": "string",
-    "email": "string"
-  }
-  loggin:
-  {
-    "token": "string"
-  }
-  */
+init();
