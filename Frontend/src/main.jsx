@@ -17,3 +17,7 @@ async function init() {
 }
 
 init();
+
+// todo: 
+// finish language translations
+// add articles
