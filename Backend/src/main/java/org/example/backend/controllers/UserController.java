@@ -47,6 +47,17 @@ public class UserController {
         }
     }
 
+    // ../api/user/getByEmail?email=123@mail.com
+    @GetMapping("/getByEmail")
+    public ResponseEntity<UserPublicDto> getUserByEmail(@RequestParam String email){
+        try {
+            UserPublicDto dto = userService.getByEmail(email);
+            return ResponseEntity.ok(dto);
+        } catch (EntityNotFoundException e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        }
+    }
+
     // secure
     @PutMapping
     public HttpStatus updateUser(@RequestBody UserCreateDto user){

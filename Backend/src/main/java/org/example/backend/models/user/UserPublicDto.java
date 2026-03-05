@@ -10,4 +10,5 @@ import lombok.Data;
 public class UserPublicDto {
     private String name;
     private Long id;
+    private UserRole role;
 }
