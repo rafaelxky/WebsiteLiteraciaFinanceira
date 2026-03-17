@@ -20,5 +20,57 @@
    "headerLogout": "Logout",
    "headerLogin": "Login" ,
 
-   "searchBarDefault": "ProcurarArtigos"
+   "searchBarDefault": "ProcurarArtigos",
+
+   "loadingArticles": "A carregar artigos...",
+   "clearCategory": "Limpar categoria:",
+    "recentArticles": "Artigos Recentes",
+    "seeAllArticles": "Ver todos os artigos →",
+
+    "questionPrompt": "Faz a tua pergunta",
+    "questionText": "Escreve a tua dúvida e eu respondo com passos práticos.",
+    "examplesTitle": "Exemplos rapidos",
+    "exampleQuestionA": "“Como faço um fundo de emergência?”",
+    "exampleQuestionB": "“Como pagar dívidas mais rápido?”",
+    "exampleQuestionC": "“ETFs vs ações: por onde começo?”",
+
+    "passwordMissmatch": "\"Palavra-passe\" e \"Confirmar Palavra-passe\" não são iguais! Tente novamente.",
+    "createUserSuccess": "Utilizador criado com sucesso!",
+    "repeatedEmail": "Erro ao criar utilizador, este email já está a ser utilizado!",
+    "serverError": "Erro no servidor, tente outra vez mais tarde! Pedimos desculpa pela inconveniencia :(",
+    "unknownError": "Erro desconhecido ao criar utilizador! Tente de novo.",    
+
+    "createUserTitle": "Criar utilizador",
+    "email": "Email",
+    "emailPlaceholder": "nome@exemplo.com",
+    "passwordTitle": "Palavra-passe",
+    "passwordConfirm": "Confirmar Palavra-passe",
+    "usernameFormPrompt": "Nome de utilizador",
+    "usernamePlaceholder": "O meu nome",
+    "createAccountSubmit": "Criar conta",
+    "login": "Entrar",
+    "or": "ou",
+
+    "successfullLogin":  "Loggin feito com sucesso!",
+    "loginFailed": "Erro ao fazer login! Email ou password errados!",
+    "loginUnknownError": "Erro desconhecido ao fazer login! Tente de novo.",
+
+    "addArticleTitle": "Adicionar noticia",
+    "articleFieldPrompt":"Preencha os campos para publicar uma nova noticia.",
+    "noPermitionToPublish": "Para publicar uma noticia tem que ter permição de autor.",
+    "loginToPublish": "Faça login com uma conta com permição de autor.",
+
+    "continue":"Continuar",
+
+    "aiChatGreeting": "Olá! 👋 Escreve a tua pergunta sobre literacia financeira e eu ajudo-te com passos práticos.",
+    "noServerResponse": "Sem resposta do servidor.",
+    "serverConnectionError": "Ocorreu um erro ao ligar ao servidor.",
+    "chatTitle": "Chat de Literacia Financeira",
+    "chatDisclaimer": "Respostas educativas (não é aconselhamento financeiro).",
+    "chatMessagePlaceholder": "Escreve a tua pergunta…",
+    "send": "Enviar",
+    "writing": "A escrever..."
+
+    
+
 }

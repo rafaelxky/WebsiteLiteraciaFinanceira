@@ -1,12 +1,14 @@
 import { useMemo, useState } from "react";
 import MessageList from "./MessageList.jsx";
 import MessageInput from "./MessageInput.jsx";
+import { langService } from "../../Dependencies.js";
 
 function createId() {
   return crypto?.randomUUID?.() ?? String(Date.now() + Math.random());
 }
 
 const API_BASE_URL = import.meta.env.VITE_API_URL ?? "";
+const lang = langService.map;
 
 export default function ChatWindow() {
   const initialMessages = useMemo(
@@ -15,7 +17,7 @@ export default function ChatWindow() {
         id: createId(),
         role: "assistant",
         content:
-          "Olá! 👋 Escreve a tua pergunta sobre literacia financeira e eu ajudo-te com passos práticos.",
+          lang?.aiChatGreeting,
         createdAt: new Date().toISOString(),
       },
     ],
@@ -51,9 +53,9 @@ export default function ChatWindow() {
       }
 
       const data = await response.json();
-      addMessage("assistant", data.reply ?? "Sem resposta do servidor.");
+      addMessage("assistant", data.reply ?? lang?.aiChatGreeting);
     } catch (error) {
-      addMessage("assistant", "Ocorreu um erro ao ligar ao servidor.");
+      addMessage("assistant", lang?.serverConnectionError);
       console.error(error);
     } finally {
       setIsTyping(false);
@@ -65,9 +67,9 @@ export default function ChatWindow() {
       <div className="chatCard__header">
         <div className="chatCard__dot" />
         <div>
-          <div className="chatCard__title">Chat de Literacia Financeira</div>
+          <div className="chatCard__title">{lang?.chatTitle}</div>
           <div className="chatCard__subtitle">
-            Respostas educativas (não é aconselhamento financeiro).
+            {lang?.chatDisclaimer}
           </div>
         </div>
       </div>

@@ -11,6 +11,28 @@
     "aboutTitle": "About",
     "aboutBody": "This site is a portfolio of small tools and experiences focused on finance literacy. The goal is to make the concepts of money simple and practical.",
     "projectTitle": "Projects",
-    "projectBody": "Simple tools to get you started right away."
+    "projectBody": "Simple tools to get you started right away.",
 
+    "headerTitle": "Finantial Literacy",
+   "headerRead": "Read",
+   "headerAddArticle": "Add article",
+   "headerChat": "Chat",
+   "headerLogout": "Logout",
+   "headerLogin": "Login" ,
+
+   "searchBarDefault": "Search",
+
+  "loadingArticles": "Loading articles...",
+   "clearCategory": "Clear categories:",
+    "recentArticles": "Recent articles",
+    "seeAllArticles": "See all articles →",
+
+   "questionPrompt": "Make your question",
+    "questionText": "Make your questio and I will respond with practical steps.",
+    "examplesTitle": "Quick examples",
+    "exampleQuestionA": "How do I make an emergency fund?”",
+    "exampleQuestionB": "How to pay debt faster?”",
+    "exampleQuestionC": "ETFs vs stocks: where do I start?"
+
+    
 }

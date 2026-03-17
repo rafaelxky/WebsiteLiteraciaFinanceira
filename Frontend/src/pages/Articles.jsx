@@ -3,6 +3,7 @@ import { useEffect, useMemo, useState } from "react";
 import ArticlesHero from "../components/article/ArticlesHero";
 import ArticleCard from "../components/article/ArticleCard";
 import ArticlesSidebar from "../components/article/ArticlesSidebar";
+import { articleService, langService } from "../Dependencies";
 
 export default function Articles() {
   const [articles, setArticles] = useState([]);
@@ -12,22 +13,29 @@ export default function Articles() {
   const [query, setQuery] = useState("");
   const [pickedCategory, setPickedCategory] = useState("");
 
+  const lang = langService.map;
+  const articleS = articleService;
+
   useEffect(() => {
     let mounted = true;
     (async () => {
       try {
-        const res = await fetch("/api/articles?page=0&size=10");
+        const res = articleS.GetUniqueArticle(0,10)
         if (!res.ok) throw new Error("Erro ao buscar artigos");
-        const page = await res.json();
+
+        const text = await res.text();
+        console.log("Raw response:", text);
+
         const content = page?.content || [];
+        const page = await res.json();
         const mapped = content.map((a) => ({
-          id: String(a.id),
-          title: a.title,
-          excerpt: (a.content || "").slice(0, 140),
-          category: a.category || "",
-          date: a.date || "",
-          image: a.imageUrl || "",
-          content: (a.content || "").split("\n").filter(Boolean),
+          id: String(a?.id),
+          title: a?.title,
+          excerpt: (a?.content || "").slice(0, 140),
+          category: a?.category || "",
+          date: a?.date || "",
+          image: a?.imageUrl || "",
+          content: (a?.content || "").split("\n").filter(Boolean),
         }));
         if (mounted) setArticles(mapped);
       } catch (err) {
@@ -71,7 +79,7 @@ export default function Articles() {
       <div className="articlesContainer">
         <ArticlesHero />
 
-        {loading ? <p>A carregar artigos...</p> : null}
+        {loading ? <p>{lang?.loadingArticles}</p> : null}
         {error ? <p>{error}</p> : null}
 
         <div className="searchRow">
@@ -84,14 +92,14 @@ export default function Articles() {
 
           {pickedCategory ? (
             <button className="clearBtn" type="button" onClick={() => setPickedCategory("")}>
-              Limpar categoria: {pickedCategory}
+              {lang?.clearCategory} {pickedCategory}
             </button>
           ) : null}
         </div>
 
         <section className="aLayout">
           <div className="aMain">
-            <h2 className="aSectionTitle">Artigos Recentes</h2>
+            <h2 className="aSectionTitle">{lang.recentArticles}</h2>
 
             <div className="aList">
               {filtered.map((a) => (
@@ -100,7 +108,7 @@ export default function Articles() {
             </div>
 
             <a className="seeAll" href="#">
-              Ver todos os artigos →
+              {lang?.seeAllArticles}
             </a>
           </div>
 

@@ -15,8 +15,8 @@ export function Header({ isLoggedIn }) {
                 <h1>{lang?.headerTitle}</h1>
             </Link>
             <SearchBar onSearch={null}></SearchBar>
-            <HeaderBtn link="/artigos">{lang?.headerRead}</HeaderBtn>
-            <HeaderBtn link="/artigos/novo">{lang?.headerAddArticle}</HeaderBtn>
+            <HeaderBtn link="/articles">{lang?.headerRead}</HeaderBtn>
+            <HeaderBtn link="/articles/novo">{lang?.headerAddArticle}</HeaderBtn>
             <HeaderBtn link="/chat">{lang?.headerChat}</HeaderBtn>
 
             {isLoggedIn ? (

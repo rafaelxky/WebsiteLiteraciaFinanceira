@@ -26,13 +26,13 @@ export default function App() {
       <Header isLoggedIn={isLoggedIn} />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/artigos" element={<Articles />} />
-        <Route path="/artigos/:id" element={<ArticleDetail />} />
+        <Route path="/articles" element={<Articles />} />
+        <Route path="/articles/:id" element={<ArticleDetail />} />
         <Route path="/chat" element={<ChatPage />} />
         <Route path="/login" element={<Login setLoggedIn={setIsLoggedIn} />} />
         <Route path="/logout" element={<Logout setLoggedIn={setIsLoggedIn} />} />
         <Route path="/createUser" element={<CreateUser />} />
-        <Route path="/artigos/novo" element={<NewArticle />} />
+        <Route path="/articles/novo" element={<NewArticle />} />
         <Route path="/status" element={<StatusPage/>} />
       </Routes>
       <Footer />

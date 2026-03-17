@@ -13,14 +13,14 @@ export default function ArticleCard({ id, date, title, excerpt, image }) {
         {date ? <p className="aCard__date">{date}</p> : null}
 
         <h3 className="aCard__title">
-          <Link className="aCard__titleLink" to={`/artigos/${id}`}>
+          <Link className="aCard__titleLink" to={`/articles/${id}`}>
             {title}
           </Link>
         </h3>
 
         {excerpt ? <p className="aCard__excerpt">{excerpt}</p> : null}
 
-        <Link className="aCard__link" to={`/artigos/${id}`}>
+        <Link className="aCard__link" to={`/articles/${id}`}>
           Ler mais →
         </Link>
       </div>

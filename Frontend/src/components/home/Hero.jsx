@@ -15,7 +15,7 @@ export default function Hero() {
           <Link className="btn btn--primary" to="/projetos">
             Ver Projetos
           </Link>
-          <Link className="btn btn--ghost" to="/artigos">
+          <Link className="btn btn--ghost" to="/articles">
             Ler Artigos
           </Link>
         </div>
