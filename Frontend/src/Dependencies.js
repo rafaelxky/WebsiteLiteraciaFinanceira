@@ -1,4 +1,4 @@
-import { ArticlesService } from "./services/articles/TestArticlesService";
+import { ArticlesService } from "./services/articles/ArticlesService";
 import { LangService } from "./services/lang/LangService";
 import { SecurityService } from "./services/security/SecurityService";
 import { UserService } from "./services/users/UserService";

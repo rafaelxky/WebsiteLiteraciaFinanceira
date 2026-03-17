@@ -1,6 +1,12 @@
+import { langService } from "../../Dependencies";
 import "../../styles/Form.css";
 
-export default function Submit({ label = "Guardar", loading = false, disabled = false, className = "" }) {
+export default function Submit({ label = "", loading = false, disabled = false, className = "" }) {
+  const lang = langService.map;
+
+  if(label === "")
+    label = lang?.saveSubmit;
+
   return (
     <button
       type="submit"
@@ -8,7 +14,7 @@ export default function Submit({ label = "Guardar", loading = false, disabled = 
       data-state={loading ? "loading" : "idle"}
       disabled={disabled || loading}
     >
-      {loading ? "A guardar..." : label}
+      {loading ? lang?.savingSubmit : label}
       {loading ? <span className="form-spinner" aria-hidden="true" /> : null}
     </button>
   );

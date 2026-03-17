@@ -1,9 +1,14 @@
+import { langService } from "../../Dependencies";
+
 export default function ArticlesHero() {
+  const lang = langService.map;
   return (
     <section className="aHero">
-      <h1 className="aHero__title">Artigos</h1>
+      <h1 className="aHero__title">
+        {lang?.aHeroTitle}
+      </h1>
       <p className="aHero__subtitle">
-        Encontra guias e dicas práticas para melhorar a tua literacia financeira.
+          {lang?.aHeroSub}
       </p>
     </section>
   );

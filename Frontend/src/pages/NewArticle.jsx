@@ -1,6 +1,7 @@
 import "../styles/NewArticle.css";
 import ArticleForm from "../components/form/ArticleForm";
-import { langService, securityService } from "../Dependencies";
+import { securityService } from "../Dependencies";
+import { langService } from "../Dependencies";
 
 export default function NewArticle() {
 

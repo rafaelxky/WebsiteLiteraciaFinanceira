@@ -20,8 +20,9 @@ export default function Articles() {
     let mounted = true;
     (async () => {
       try {
+        // todo: fetch as scrolls
         const res = articleS.GetUniqueArticle(0,10)
-        if (!res.ok) throw new Error("Erro ao buscar artigos");
+        if (!res.ok) throw new Error(lang?.errorFetchingArticles);
 
         const text = await res.text();
         console.log("Raw response:", text);
@@ -39,7 +40,7 @@ export default function Articles() {
         }));
         if (mounted) setArticles(mapped);
       } catch (err) {
-        if (mounted) setError(err?.message || "Erro ao buscar artigos");
+        if (mounted) setError(err?.message || lang?.errorFetchingArticles);
       } finally {
         if (mounted) setLoading(false);
       }

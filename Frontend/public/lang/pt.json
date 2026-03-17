@@ -69,8 +69,22 @@
     "chatDisclaimer": "Respostas educativas (não é aconselhamento financeiro).",
     "chatMessagePlaceholder": "Escreve a tua pergunta…",
     "send": "Enviar",
-    "writing": "A escrever..."
+    "writing": "A escrever...",
 
-    
+    "errorFetchingArticles":  "Erro ao buscar artigos",
 
+    "readMore": "Ler mais →",
+    "aHeroTitle": "Artigos",
+    "aHeroSub": "Encontra guias e dicas práticas para melhorar a tua literacia financeira.",
+
+    "populars": "Populares",
+    "categories": "Categorias",
+
+    "savingSubmit": "A guardar...",
+    "saveSubmit": "Guardar",
+
+    "heroTitle": "Aprende a gerir as tuas finanças pessoais",
+    "heroBody": "Descobre ferramentas e guias práticos para melhorar a tua literacia financeira e alcançar os teus objetivos.",
+    "seeBody": " Ver Projetos",
+    "readArticles": "Ler Artigos"
 }

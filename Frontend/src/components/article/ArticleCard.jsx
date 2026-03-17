@@ -1,6 +1,10 @@
 import { Link } from "react-router-dom";
+import { langService } from "../../Dependencies";
 
 export default function ArticleCard({ id, date, title, excerpt, image }) {
+
+  const lang = langService.map;
+
   return (
     <article className="aCard">
       {image ? (
@@ -21,7 +25,7 @@ export default function ArticleCard({ id, date, title, excerpt, image }) {
         {excerpt ? <p className="aCard__excerpt">{excerpt}</p> : null}
 
         <Link className="aCard__link" to={`/articles/${id}`}>
-          Ler mais →
+          {lang?.readMore}
         </Link>
       </div>
     </article>

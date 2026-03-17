@@ -1,11 +1,18 @@
+import { langService } from "../../Dependencies";
+
 export default function ArticlesSidebar({ popular, categories, onPickCategory }) {
+
+  const lang = langService.map;
+
   if (!popular?.length && !categories?.length) return null;
 
   return (
     <aside className="aSide">
       {popular?.length ? (
         <div className="aSide__box">
-          <h3 className="aSide__title">Populares</h3>
+          <h3 className="aSide__title">
+            {lang?.populars}
+          </h3>
           <ul className="aSide__list">
             {popular.map((item) => (
               <li key={item} className="aSide__item">
@@ -18,7 +25,7 @@ export default function ArticlesSidebar({ popular, categories, onPickCategory })
 
       {categories?.length ? (
         <div className="aSide__box">
-          <h3 className="aSide__title">Categorias</h3>
+          <h3 className="aSide__title">{lang?.categories}</h3>
           <div className="aSide__tags">
             {categories.map((c) => (
               <button
