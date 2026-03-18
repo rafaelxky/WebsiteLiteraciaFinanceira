@@ -12,6 +12,8 @@ import Login from "./pages/Login";
 import CreateUser from "./pages/CreateUser";
 import NewArticle from "./pages/NewArticle";
 import Logout from "./pages/Logout";
+import SavePlan from "./pages/SavePlan";
+import BudgetTracker from "./pages/BudgetTracker";
 import { useState } from "react";
 import { securityService } from "./Dependencies";
 import StatusPage from "./pages/Status";
@@ -33,6 +35,8 @@ export default function App() {
         <Route path="/logout" element={<Logout setLoggedIn={setIsLoggedIn} />} />
         <Route path="/createUser" element={<CreateUser />} />
         <Route path="/artigos/novo" element={<NewArticle />} />
+        <Route path="/orcamento" element={<BudgetTracker />} />
+        <Route path="/poupanca" element={<SavePlan />} />
         <Route path="/status" element={<StatusPage/>} />
       </Routes>
       <Footer />

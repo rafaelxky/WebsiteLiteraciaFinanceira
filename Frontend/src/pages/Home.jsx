@@ -14,7 +14,7 @@ export default function Home() {
       title: "Rastreador de orçamento",
       description: "Acompanha rendimentos e despesas com uma interface simples.",
       cta: "Ir",
-      to: "/projetos#budget",
+      to: "/orcamento",
       icon: "💸",
     },
     {
@@ -22,16 +22,8 @@ export default function Home() {
       title: "Planeador de Poupança",
       description: "Ajuda-te a planear metas e prazos de poupança.",
       cta: "Ir",
-      to: "/projetos#savings",
+      to: "/poupanca",
       icon: "🐷",
-    },
-    {
-      id: "debt",
-      title: "Calculadora de Quitação de Dívidas",
-      description: "Simula diferentes estratégias de recompensa (bola de neve vs avalanche).",
-      cta: "Ir",
-      to: "/projetos#debt",
-      icon: "🧮",
     },
   ];
 

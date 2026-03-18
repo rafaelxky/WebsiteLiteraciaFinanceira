@@ -12,9 +12,6 @@ export default function Hero() {
         </p>
 
         <div className="hero__actions">
-          <Link className="btn btn--primary" to="/projetos">
-            Ver Projetos
-          </Link>
           <Link className="btn btn--ghost" to="/artigos">
             Ler Artigos
           </Link>
