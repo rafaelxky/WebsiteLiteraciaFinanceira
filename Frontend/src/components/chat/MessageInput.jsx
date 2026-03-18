@@ -1,7 +1,9 @@
 import { useState } from "react";
+import { langService } from "../../Dependencies";
 
 export default function MessageInput({ onSend, disabled }) {
   const [text, setText] = useState("");
+  const lang = langService.map;
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -24,7 +26,7 @@ export default function MessageInput({ onSend, disabled }) {
     <form className="composer" onSubmit={handleSubmit}>
       <textarea
         className="composer__input"
-        placeholder="Escreve a tua pergunta…"
+        placeholder={lang?.chatMessagePlaceholder}
         value={text}
         onChange={(e) => setText(e.target.value)}
         onKeyDown={handleKeyDown}
@@ -32,7 +34,7 @@ export default function MessageInput({ onSend, disabled }) {
         rows={2}
       />
       <button className="btn composer__btn" type="submit" disabled={disabled || !text.trim()}>
-        Enviar
+        {lang?.send}
       </button>
     </form>
   );

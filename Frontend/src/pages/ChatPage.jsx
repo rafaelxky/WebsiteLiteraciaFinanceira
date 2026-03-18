@@ -1,7 +1,10 @@
 import ChatWindow from "../components/chat/ChatWindow.jsx";
+import { langService } from "../Dependencies.js";
 import "../styles/chat.css";
 
 export default function ChatPage() {
+  const lang = langService.map;
+
   return (
     <main className="main">
       <section className="hero">
@@ -9,19 +12,19 @@ export default function ChatPage() {
           <div className="avatarCard">
             <div className="avatarCard__avatar">💬</div>
             <div>
-              <h2 className="avatarCard__title">Faz a tua pergunta</h2>
+              <h2 className="avatarCard__title">{lang?.questionPrompt}</h2>
               <p className="avatarCard__text">
-                Escreve a tua dúvida e eu respondo com passos práticos.
+                {lang?.questionText}
               </p>
             </div>
           </div>
 
           <div className="tips">
-            <h3 className="tips__title">Exemplos rápidos</h3>
+            <h3 className="tips__title">{lang?.examplesTitle}</h3>
             <ul className="tips__list">
-              <li>“Como faço um fundo de emergência?”</li>
-              <li>“Como pagar dívidas mais rápido?”</li>
-              <li>“ETFs vs ações: por onde começo?”</li>
+              <li>{lang?.exampleQuestionA}</li>
+              <li>{lang?.exampleQuestionB}</li>
+              <li>{lang?.exampleQuestionC}</li>
             </ul>
           </div>
         </div>

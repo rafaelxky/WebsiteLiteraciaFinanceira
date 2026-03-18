@@ -3,25 +3,25 @@ import "../styles/Home.css";
 import Hero from "../components/home/Hero";
 import SectionTitle from "../components/home/SectionTitle";
 import ProjectCard from "../components/home/ProjectCard";
+import { langService } from "../Dependencies";
 
-// todo: mudara para pt-pt
 export default function Home() {
-  const name = "Literacia Financeira";
+  const lang = langService.map;
 
   const projects = [
     {
       id: "budget",
-      title: "Rastreador de orçamento",
-      description: "Acompanha rendimentos e despesas com uma interface simples.",
-      cta: "Ir",
+      title: lang?.proj1Title,
+      description: lang?.proj1Description,
+      cta: lang?.cta,
       to: "/orcamento",
       icon: "💸",
     },
     {
       id: "savings",
-      title: "Planeador de Poupança",
-      description: "Ajuda-te a planear metas e prazos de poupança.",
-      cta: "Ir",
+      title: lang?.proj2Title,
+      description: lang?.proj2Description,
+      cta: lang?.cta,
       to: "/poupanca",
       icon: "🐷",
     },
@@ -30,22 +30,22 @@ export default function Home() {
   return (
     <main className="home">
       <Hero
-        title={name}
-        subtitle="Aprenda finanças pessoais práticas através de ferramentas simples e pequenos projetos."
+        title = {lang?.homeHeader}
+        subtitle = {lang?.homeDescription}
       />
 
       <section id="about" className="about-section section">
         <SectionTitle
-          title="Sobre"
+          title={lang?.aboutTitle}
         />
 
         <p>
-          Este site é um portefólio de pequenas ferramentas e experiências focadas em finanças literacia. O objetivo é tornar os conceitos de dinheiro simples e práticos.
+          {lang?.aboutBody}
         </p>
       </section>
 
       <section id="projects" className="project-section section">
-        <SectionTitle title="Projects" subtitle="Ferramentas simples para começares já." />
+        <SectionTitle title={lang?.projectTitle}  subtitle={lang?.projectBody}/>
 
         <div className="grid grid--3">
           {projects.map((project) => (

@@ -13,7 +13,9 @@ const initialState = {
 export default function ClientForm() {
   const [form, setForm] = useState(initialState);
   const [status, setStatus] = useState({ type: "idle", message: "" });
+  const lang = langService.map;
 
+  // todo: translate
   const fields = useMemo(
     () => [
       {

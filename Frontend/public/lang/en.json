@@ -1,0 +1,90 @@
+{
+    "homeHeader": "Financial Literacy",
+    "homeDescription": "Learn practical personal finance through simple tools and small projects.",
+    "cta": "Go to",
+    "proj1Title": "Budget Tracker", 
+    "proj1Description": "Track income and expenses with a simple interface.",
+    "proj2Title": "Savings Planner",
+    "proj2Description": "It helps you plan savings goals and timelines.",
+    "proj3Title": "Debt Settlement Calculator",
+    "proj3Description": "Simulates different reward strategies (snowball vs avalanche).",
+    "aboutTitle": "About",
+    "aboutBody": "This site is a portfolio of small tools and experiences focused on financial literacy. The goal is to make money concepts simple and practical.",
+    "projectTitle": "Projects",
+    "projectBody": "Simple tools to get you started right away.",
+
+    "headerTitle": "Financial Literacy",
+    "headerRead": "Read",
+    "headerAddArticle": "Add article",
+    "headerChat": "Chat",
+    "headerLogout": "Logout",
+    "headerLogin": "Login",
+
+    "searchBarDefault": "Search articles",
+
+    "loadingArticles": "Loading articles...",
+    "clearCategory": "Clear category:",
+    "recentArticles": "Recent Articles",
+    "seeAllArticles": "See all articles →",
+
+    "questionPrompt": "Ask your question",
+    "questionText": "Write your question and I will respond with practical steps.",
+    "examplesTitle": "Quick examples",
+    "exampleQuestionA": "\"How do I build an emergency fund?\"",
+    "exampleQuestionB": "\"How do I pay off debt faster?\"",
+    "exampleQuestionC": "\"ETFs vs stocks: where do I start?\"",
+
+    "passwordMissmatch": "\"Password\" and \"Confirm Password\" do not match! Please try again.",
+    "createUserSuccess": "User created successfully!",
+    "repeatedEmail": "Error creating user, this email is already in use!",
+    "serverError": "Server error, please try again later! We apologize for the inconvenience :(",
+    "unknownError": "Unknown error creating user! Please try again.",
+
+    "createUserTitle": "Create user",
+    "email": "Email",
+    "emailPlaceholder": "name@example.com",
+    "passwordTitle": "Password",
+    "passwordConfirm": "Confirm Password",
+    "usernameFormPrompt": "Username",
+    "usernamePlaceholder": "My name",
+    "createAccountSubmit": "Create account",
+    "login": "Sign in",
+    "or": "or",
+
+    "successfullLogin": "Login successful!",
+    "loginFailed": "Login failed! Wrong email or password!",
+    "loginUnknownError": "Unknown error during login! Please try again.",
+
+    "addArticleTitle": "Add article",
+    "articleFieldPrompt": "Fill in the fields to publish a new article.",
+    "noPermitionToPublish": "To publish an article you need author permissions.",
+    "loginToPublish": "Log in with an account that has author permissions.",
+
+    "continue": "Continue",
+
+    "aiChatGreeting": "Hello! 👋 Write your financial literacy question and I'll help you with practical steps.",
+    "noServerResponse": "No response from server.",
+    "serverConnectionError": "An error occurred while connecting to the server.",
+    "chatTitle": "Financial Literacy Chat",
+    "chatDisclaimer": "Educational responses (not financial advice).",
+    "chatMessagePlaceholder": "Write your question…",
+    "send": "Send",
+    "writing": "Typing...",
+
+    "errorFetchingArticles": "Error fetching articles",
+
+    "readMore": "Read more →",
+    "aHeroTitle": "Articles",
+    "aHeroSub": "Find practical guides and tips to improve your financial literacy.",
+
+    "populars": "Popular",
+    "categories": "Categories",
+
+    "savingSubmit": "Saving...",
+    "saveSubmit": "Save",
+
+    "heroTitle": "Learn to manage your personal finances",
+    "heroBody": "Discover practical tools and guides to improve your financial literacy and reach your goals.",
+    "seeBody": "See Projects",
+    "readArticles": "Read Articles"
+}

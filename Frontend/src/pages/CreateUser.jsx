@@ -1,6 +1,6 @@
 import { useState } from "react";
 import UserCreateDto from "../models/users/UserCreateDto"
-import { securityService, usersService } from "../Dependencies";
+import { langService, securityService, usersService } from "../Dependencies";
 import { Navigate, useNavigate } from "react-router-dom";
 import { EmailConflictError } from "../errors/EmailConflictError";
 import { ServerError } from "../errors/ServerError";
@@ -14,24 +14,26 @@ export default function CreateUser(){
 
     const navigate = useNavigate();
 
+    const lang = langService.map;
+
   async function Submit(e){
     e.preventDefault();
     let userCreate = new UserCreateDto(email, password, name);
     if(password != passwordConfirm){
-      navigate("/status", {state: {message: "\"Palavra-passe\" e \"Confirmar Palavra-passe\" não são iguais! Tente novament.", nextPage: "/createUser"}});
+      navigate("/status", {state: {message: lang?.passwordMissmatch, nextPage: "/createUser"}});
     }
     try {
       await usersService.NewUser(userCreate);
-      navigate("/status", {state: {message: "Utilizador criado com sucesso!", nextPage: "/"}});
+      navigate("/status", {state: {message: lang?.createUserSuccess, nextPage: "/"}});
     } catch (error) {
       if(error instanceof EmailConflictError){
-        navigate("/status", {state: {message: "Erro ao criar utilizador, este email já está a ser utilizado!", nextPage: "/createUser"}});
+        navigate("/status", {state: {message: lang?.repeatedEmail, nextPage: "/createUser"}});
       } else 
       if(error instanceof ServerError){
-        navigate("/status", {state: {message: "Erro no servidor, tente outra vez mais tarde! Pedimos desculpa pela inconveniencia :(", nextPage: "/createUser"}});
+        navigate("/status", {state: {message: lang?.serverError, nextPage: "/createUser"}});
       } 
       else {
-        navigate("/status", {state: {message: "Erro desconhecido ao criar utilizador! Tente de novo.", nextPage: "/createUser"}});
+        navigate("/status", {state: {message: lang?.unknownError, nextPage: "/createUser"}});
       }
     }
   }
@@ -39,21 +41,21 @@ export default function CreateUser(){
 return (
     <main className="login-page">
       <section className="login-card">
-        <h1>Criar utilizador</h1>
+        <h1>{lang?.createUserTitle}</h1>
 
         <form className="login-form" onSubmit={Submit}>
           <label className="login-field">
-            Email
+            {lang?.email}
             <input 
                 type="email" 
-                placeholder="nome@exemplo.com" 
+                placeholder={lang?.emailPlaceholder}
                 value={email}
                 onChange={e => setEmail(e.target.value)}
             />
           </label>
 
           <label className="login-field">
-            Palavra-passe
+            {lang?.passwordTitle}
             <input 
                 type="password" 
                 placeholder="••••••••" 
@@ -63,7 +65,7 @@ return (
           </label>
           
           <label className="login-field">
-            Confirmar Palavra-passe
+            {lang?.passwordConfirm}
             <input 
                 type="password" 
                 placeholder="••••••••" 
@@ -73,17 +75,17 @@ return (
           </label>
 
           <label className="login-field">
-            Nome de utilizador
+            {lang?.usernameFormPrompt}
             <input 
                 type="text"
-                placeholder="O meu nome"
+                placeholder={lang?.usernamePlaceholder}
                 value={name}
                 onChange={e => setName(e.target.value)}
              />
           </label>
 
           <button  type="submit" className="login-submit">
-            Criar conta
+            {lang?.createAccountSubmit}
           </button>
         </form>
       </section>

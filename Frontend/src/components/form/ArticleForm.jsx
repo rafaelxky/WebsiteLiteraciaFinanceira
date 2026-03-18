@@ -1,7 +1,7 @@
 import { useMemo, useState } from "react";
 import FormField from "./FormField";
 import Submit from "./submit";
-import { articleService } from "../../Dependencies";
+import { articleService, langService } from "../../Dependencies";
 import "../../styles/Form.css";
 
 const initialState = {
@@ -17,6 +17,9 @@ export default function ArticleForm() {
   const [status, setStatus] = useState({ type: "idle", message: "" });
   const [loading, setLoading] = useState(false);
 
+  const lang = langService.map;
+
+  // todo: translate and create default acc
   const fields = useMemo(
     () => [
       {

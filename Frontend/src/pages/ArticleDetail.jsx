@@ -53,7 +53,7 @@ export default function ArticleDetail() {
         <div className="articlesContainer">
           <h1>Artigo não encontrado</h1>
           {error ? <p>{error}</p> : <p>O id no URL foi: {id}</p>}
-          <Link className="btn btn--ghost" to="/artigos">
+          <Link className="btn btn--ghost" to="/articles">
             ← Voltar aos artigos
           </Link>
         </div>
@@ -64,7 +64,7 @@ export default function ArticleDetail() {
   return (
     <main className="articlesPage">
       <div className="articlesContainer">
-        <Link className="btn btn--ghost" to="/artigos">
+        <Link className="btn btn--ghost" to="/articles">
           ← Voltar
         </Link>
 

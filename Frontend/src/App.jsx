@@ -15,7 +15,7 @@ import Logout from "./pages/Logout";
 import SavePlan from "./pages/SavePlan";
 import BudgetTracker from "./pages/BudgetTracker";
 import { useState } from "react";
-import { securityService } from "./Dependencies";
+import { langService, securityService } from "./Dependencies";
 import StatusPage from "./pages/Status";
 
 export default function App() {
@@ -28,8 +28,8 @@ export default function App() {
       <Header isLoggedIn={isLoggedIn} />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/artigos" element={<Articles />} />
-        <Route path="/artigos/:id" element={<ArticleDetail />} />
+        <Route path="/articles" element={<Articles />} />
+        <Route path="/articles/:id" element={<ArticleDetail />} />
         <Route path="/chat" element={<ChatPage />} />
         <Route path="/login" element={<Login setLoggedIn={setIsLoggedIn} />} />
         <Route path="/logout" element={<Logout setLoggedIn={setIsLoggedIn} />} />

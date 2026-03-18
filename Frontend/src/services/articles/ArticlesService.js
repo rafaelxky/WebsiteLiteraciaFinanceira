@@ -1,4 +1,4 @@
-export class TestArticlesService{
+export class ArticlesService{
     constructor(baseUrl){
         this.baseUrl = baseUrl
     }
@@ -17,8 +17,8 @@ export class TestArticlesService{
         return res.json();
     }
 
-    async GetUniqueArticle(page){
-        const res = await fetch(`${this.baseUrl}?page=${page}&size=1`);
+    async GetUniqueArticle(page, size){
+        const res = await fetch(`${this.baseUrl}?page=${page}&size=${size}`);
         if (!res.ok) throw new Error("Erro ao buscar artigos");
         return res.json();
     }

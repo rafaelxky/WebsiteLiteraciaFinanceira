@@ -1,0 +1,90 @@
+{
+    "homeHeader": "Literacia Financeira",
+    "homeDescription": "Aprenda finanças pessoais práticas através de ferramentas simples e pequenos projetos.",
+    "cta": "Ir",
+    "proj1Title": "Rastreador de orçamento", 
+    "proj1Description": "Acompanha rendimentos e despesas com uma interface simples.",
+    "proj2Title": "Planeador de Poupança",
+    "proj2Description":  "Ajuda-te a planear metas e prazos de poupança.",
+    "proj3Title":  "Calculadora de Quitação de Dívidas",
+    "proj3Description": "Simula diferentes estratégias de recompensa (bola de neve vs avalanche).",
+    "aboutTitle": "Sobre",
+    "aboutBody": "Este site é um portefólio de pequenas ferramentas e experiências focadas em finanças literacia. O objetivo é tornar os conceitos de dinheiro simples e práticos.",
+    "projectTitle": "Projetos",
+    "projectBody": "Ferramentas simples para começares já.",
+
+   "headerTitle": "Literacia Financeira",
+   "headerRead": "Ler",
+   "headerAddArticle": "Adicionar artigo",
+   "headerChat": "Chat",
+   "headerLogout": "Logout",
+   "headerLogin": "Login" ,
+
+   "searchBarDefault": "ProcurarArtigos",
+
+   "loadingArticles": "A carregar artigos...",
+   "clearCategory": "Limpar categoria:",
+    "recentArticles": "Artigos Recentes",
+    "seeAllArticles": "Ver todos os artigos →",
+
+    "questionPrompt": "Faz a tua pergunta",
+    "questionText": "Escreve a tua dúvida e eu respondo com passos práticos.",
+    "examplesTitle": "Exemplos rapidos",
+    "exampleQuestionA": "“Como faço um fundo de emergência?”",
+    "exampleQuestionB": "“Como pagar dívidas mais rápido?”",
+    "exampleQuestionC": "“ETFs vs ações: por onde começo?”",
+
+    "passwordMissmatch": "\"Palavra-passe\" e \"Confirmar Palavra-passe\" não são iguais! Tente novamente.",
+    "createUserSuccess": "Utilizador criado com sucesso!",
+    "repeatedEmail": "Erro ao criar utilizador, este email já está a ser utilizado!",
+    "serverError": "Erro no servidor, tente outra vez mais tarde! Pedimos desculpa pela inconveniencia :(",
+    "unknownError": "Erro desconhecido ao criar utilizador! Tente de novo.",    
+
+    "createUserTitle": "Criar utilizador",
+    "email": "Email",
+    "emailPlaceholder": "nome@exemplo.com",
+    "passwordTitle": "Palavra-passe",
+    "passwordConfirm": "Confirmar Palavra-passe",
+    "usernameFormPrompt": "Nome de utilizador",
+    "usernamePlaceholder": "O meu nome",
+    "createAccountSubmit": "Criar conta",
+    "login": "Entrar",
+    "or": "ou",
+
+    "successfullLogin":  "Loggin feito com sucesso!",
+    "loginFailed": "Erro ao fazer login! Email ou password errados!",
+    "loginUnknownError": "Erro desconhecido ao fazer login! Tente de novo.",
+
+    "addArticleTitle": "Adicionar noticia",
+    "articleFieldPrompt":"Preencha os campos para publicar uma nova noticia.",
+    "noPermitionToPublish": "Para publicar uma noticia tem que ter permição de autor.",
+    "loginToPublish": "Faça login com uma conta com permição de autor.",
+
+    "continue":"Continuar",
+
+    "aiChatGreeting": "Olá! 👋 Escreve a tua pergunta sobre literacia financeira e eu ajudo-te com passos práticos.",
+    "noServerResponse": "Sem resposta do servidor.",
+    "serverConnectionError": "Ocorreu um erro ao ligar ao servidor.",
+    "chatTitle": "Chat de Literacia Financeira",
+    "chatDisclaimer": "Respostas educativas (não é aconselhamento financeiro).",
+    "chatMessagePlaceholder": "Escreve a tua pergunta…",
+    "send": "Enviar",
+    "writing": "A escrever...",
+
+    "errorFetchingArticles":  "Erro ao buscar artigos",
+
+    "readMore": "Ler mais →",
+    "aHeroTitle": "Artigos",
+    "aHeroSub": "Encontra guias e dicas práticas para melhorar a tua literacia financeira.",
+
+    "populars": "Populares",
+    "categories": "Categorias",
+
+    "savingSubmit": "A guardar...",
+    "saveSubmit": "Guardar",
+
+    "heroTitle": "Aprende a gerir as tuas finanças pessoais",
+    "heroBody": "Descobre ferramentas e guias práticos para melhorar a tua literacia financeira e alcançar os teus objetivos.",
+    "seeBody": " Ver Projetos",
+    "readArticles": "Ler Artigos"
+}

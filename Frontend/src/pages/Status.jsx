@@ -1,5 +1,6 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import "../styles/Login.css";
+import { langService } from "../Dependencies";
 
 export default function StatusPage() {
 
@@ -13,12 +14,14 @@ export default function StatusPage() {
         navigate(nextPage);
     };
 
+    const lang = langService.map;
+
     return (
         <main className="login-page">
             <section className="login-card">
                 {message}
                 <button className="login-submit" onClick={goto}>
-                    Continuar
+                    {lang?.continue}
                 </button>
             </section>
         </main>
