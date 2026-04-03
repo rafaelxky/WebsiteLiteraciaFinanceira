@@ -10,3 +10,4 @@ export const usersService = new UserService(baseUrl+"user");
 export const securityService = new SecurityService(baseUrl+"auth");
 export const webService = new WebService();
 export const langService = new LangService();
+langService.map = await langService.GetLanguageMap();
