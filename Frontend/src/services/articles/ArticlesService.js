@@ -5,7 +5,10 @@ export class ArticlesService{
 
     async GetArticleByTitle(title){
         const res = await fetch(`${this.baseUrl}?page=0&size=10`);
-        if (!res.ok) throw new Error("Erro ao buscar artigos");
+        if (!res.ok) {
+            const errorText = await res.text();
+            throw new Error("Erro ao buscar artigos: " + errorText);
+        }
         const page = await res.json();
         const content = page?.content || [];
         return content.find((article) => article?.title === title);
@@ -13,13 +16,19 @@ export class ArticlesService{
 
     async GetArticleById(id){
         const res = await fetch(`${this.baseUrl}/${id}`);
-        if (!res.ok) throw new Error("Erro ao buscar artigo");
+        if (!res.ok) {
+            const errorText = await res.text();
+            throw new Error("Erro ao buscar artigo: " + errorText);
+        }
         return res.json();
     }
 
     async GetUniqueArticle(page, size){
         const res = await fetch(`${this.baseUrl}?page=${page}&size=${size}`);
-        if (!res.ok) throw new Error("Erro ao buscar artigos");
+        if (!res.ok){ 
+            const errorText = await res.text();
+            throw new Error("Erro ao buscar artigos: " + errorText);
+        }
         return res.json();
     }
 

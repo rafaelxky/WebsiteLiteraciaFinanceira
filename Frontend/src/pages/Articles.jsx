@@ -22,13 +22,8 @@ export default function Articles() {
       try {
         // todo: fetch as scrolls
         const res = articleS.GetUniqueArticle(0,10)
-        if (!res.ok) throw new Error(lang?.errorFetchingArticles);
-
-        const text = await res.text();
-        console.log("Raw response:", text);
-
+        const page = await res;
         const content = page?.content || [];
-        const page = await res.json();
         const mapped = content.map((a) => ({
           id: String(a?.id),
           title: a?.title,
@@ -41,6 +36,8 @@ export default function Articles() {
         if (mounted) setArticles(mapped);
       } catch (err) {
         if (mounted) setError(err?.message || lang?.errorFetchingArticles);
+          console.error("Could not fetch articles at Article.jsx: " + err);
+          throw new Error(lang?.errorFetchingArticles);
       } finally {
         if (mounted) setLoading(false);
       }

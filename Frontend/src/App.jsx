@@ -34,7 +34,7 @@ export default function App() {
         <Route path="/login" element={<Login setLoggedIn={setIsLoggedIn} />} />
         <Route path="/logout" element={<Logout setLoggedIn={setIsLoggedIn} />} />
         <Route path="/createUser" element={<CreateUser />} />
-        <Route path="/artigos/novo" element={<NewArticle />} />
+        <Route path="/articles/novo" element={<NewArticle />} />
         <Route path="/orcamento" element={<BudgetTracker />} />
         <Route path="/poupanca" element={<SavePlan />} />
         <Route path="/status" element={<StatusPage/>} />
